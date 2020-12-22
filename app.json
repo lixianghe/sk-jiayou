@@ -1,0 +1,25 @@
+{
+  "pages": [   
+    "pages/index/index",
+    "pages/detail/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black",
+    "pageOrientation": "auto",
+    "mossPkgName": "lifeTemplate"
+  },
+  "usingComponents": {
+    "Nodata": "/comps/display_no_data/display_no_data",
+    "log": "/comps/log/log"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "位置信息将用于推荐影视列表，拒绝授权无法显示。"
+    }
+  },
+  "resizable": true,
+  "sitemapLocation": "sitemap.json"
+}

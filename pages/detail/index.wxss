@@ -1,0 +1,464 @@
+/* 视频详情区域 */
+
+.page {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.video-box {
+  overflow: hidden;
+  width: 100vw;
+  height: 66.346vh;
+  position: relative;
+}
+
+/* 左侧视频摘要信息窗口 */
+
+.video-info {
+  overflow: hidden;
+  width: 169.231vh;
+  height: 100%;
+  padding-left: 63.462vh;
+  position: relative;
+}
+
+/* 封面图窗口 */
+
+.video-cover {
+  width: 62.821vh;
+  height: 100%;
+  padding: 2.724vh 8.974vh;
+  position: absolute;
+  /* z-index: 9; */
+  left: 0;
+  top: 0;
+}
+
+.video-cover-shadow {
+  box-shadow: 0 0 3.077vh rgba(0, 0, 0, 0.3);
+}
+
+.video-cover image {
+  width: 100%;
+  height: 100%;
+  border-radius: 4rpx;
+  box-shadow: 0 0 6.154vh rgba(0, 0, 0, 0.2);
+}
+
+.video-baseinfo {
+  padding: 5.929vh 12.821vh 0 0;
+  font-size: 5.769vh;
+  position: relative;
+  line-height: 6.731vh;
+}
+
+.video-baseinfo view {
+  opacity: 0.6;
+}
+
+.video-baseinfo .video-title {
+  font-size: 7.692vh;
+  /* font-weight: 450; */
+  /* font-weight: bold; */
+  opacity: 1;
+}
+
+.video-baseinfo .video-fen {
+  opacity: 1;
+  color: #ffbf00;
+  position: absolute;
+  right: 12.308vh;
+  top: 19.551vh;
+}
+
+.video-fen-size {
+  font-size: 18.462vh;
+  font-weight: 500;
+  margin-right: 4rpx;
+}
+
+.video-baseinfo .video-tags {
+  margin-top: 5.929vh;
+}
+
+.video-baseinfo .video-time {
+  margin-top: 2.724vh;
+}
+
+.video-baseinfo .video-stardom {
+  margin-top: 8.654vh;
+  line-height: 9vh;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+/* 右侧视频详细信息窗口 */
+
+/* 浮动层级在视频封面之下(小于9) */
+
+.video-move-card {
+  /* width: 476.923vh; */
+  height: 100%;
+  position: absolute;
+  z-index: 8;
+  top: 0;
+  left: 0;
+}
+
+/* 定位左侧位置0 */
+
+.video-move-card-left {
+  left: -169.231vh;
+}
+
+.video-detail {
+  width: 100vw;
+  height: 100%;
+  padding:5.929vh 5.974vh 2.724vh 0;
+  padding-left: 117.147vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.detail-scroll {
+  overflow: hidden;
+  width: 100%;
+  height: 80%;
+  margin-top: 4vh;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+  color: #3d3f52;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+.light ::-webkit-scrollbar {
+  color: #3d3f52;
+}
+
+/*定义滑块 内阴影+圆角*/
+.light ::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+}
+
+.no-video {
+  padding-left: 0;
+}
+
+.detail-cover {
+  width: 117.147vh;
+  height: 100%;
+  padding: 2.724vh 8.974vh;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.video-image{
+  width: 100%;
+  height: 100%;
+  border-radius: 4rpx;
+}
+
+.video {
+  width: 100%;
+  height: 100%;
+  border-radius: 4rpx;
+}
+
+.detail-cover .play-btn-container {
+  width: 22.115vh;
+  height: 22.115vh;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 0;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.detail-cover .play-btn {
+  width: 14.103vh;
+  height: 14.103vh;
+}
+
+.no-video .detail-cover {
+  display: none;
+}
+
+.detail-title {
+  /* font-weight: bold; */
+  font-size: 7.692vh;
+}
+
+/* .detail-intro {
+  opacity: 0.6;
+  -webkit-column-count: 2;
+  column-count: 2;
+  column-gap: 20rpx;
+  -webkit-column-fill: auto;
+  column-fill: auto;
+  font-size: 5.128vh;
+  line-height: 8.013vh;
+  min-height: 100%;
+} */
+
+.detail-intro {
+  opacity: 0.6;
+  font-size: 5.128vh;
+  line-height: 8.013vh;
+  min-height: 100%;
+  padding-right: 3vh;
+}
+
+/* 影院信息区域 */
+
+.cinema-box {
+  overflow: hidden;
+  width: 100vw;
+  /* height: 33.654vh; */
+  flex:1;
+  border-top: solid 2px #212733;
+  position: relative;
+}
+/* 影院信息区域 scroll*/
+.cinema-scroll {
+  /* height:33.654vh; */
+  height: 100%;
+  width:100%;
+  white-space:nowrap
+}
+/* 滑动区窗口 */
+
+.cinema-bar {
+  height: 100%;
+  white-space: nowrap;
+  /* overflow: auto; */
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* 每一个影院窗口尺寸 */
+
+.cinema-card {
+  display: inline-block;
+  width: 112.500vh;
+  height: 100%;
+  position: relative;
+}
+
+/* .cinema-card::after {
+  content: "";
+  height: 70%;
+  margin: auto;
+  border-right: #313747 solid 1px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+} */
+
+.cinema-item {
+  /* padding: 4.923vh 7.385vh; */
+  padding-left: 30.128vh;
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-right: 11.218vh;
+}
+
+.cinema-icon {
+  text-align: center;
+  position: absolute;
+  left: 8.333vh;
+  top: 6.410vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cinema-icon image {
+  display: block;
+  width: 7.692vh;
+  height: 7.692vh;
+  padding: 3.077vh;
+  background-color: rgb(62, 143, 255);
+  border-radius: 50%;
+  margin-bottom: 1vh;
+}
+
+.cinema-km {
+  opacity: 0.6;
+  font-size: 4.308vh;
+}
+
+.cinema-title {
+  font-size: 5.769vh;
+  /* font-weight: bold; */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cinema-tags {
+  margin-top: 3vh;
+  height: 7vh;
+  font-size: 4.308vh;
+  display: flex;
+  flex-direction: row;
+}
+
+.cinema-tags text {
+  color: #66b3ff;
+  border: #66b3ff solid 1rpx;
+  border-radius: 2rpx;
+  padding: 0 4rpx;
+  margin-right: 8rpx;
+  display: flex;
+  vertical-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.cinema-add {
+  margin-top: 2vh;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 4.492vh;
+  opacity: 0.6;
+}
+
+.cinema-seg {
+  margin-left: 1.2vh;
+  margin-right: 1.2vh;
+  background: #494e5e;
+  width: 0.5vh;
+  height: 3.6vh;
+}
+
+.cinema-address {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.scroll-view-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.line-ver{
+  width: 2px;
+  height: 66%;
+  position: absolute;
+  top: 17%;
+  left: 0;
+  background-color: #313747;
+}
+
+/* 白天模式 */
+
+.light {
+  color: #525666;
+}
+
+.light .cinema-box {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.light .cinema-card::after {
+  border-color: #edf0f6;
+}
+
+.light .cinema-tags text {
+  background-color: rgba(59, 135, 249, 0.1);
+  border-color: rgba(59, 135, 249, 0.03);
+}
+.light  .line-ver{
+  background-color: #e2e4e8;
+}
+/* 夜间模式 */
+
+.dark {
+  color: rgba(255, 255, 255, 1);
+}
+.dark  .line-ver{
+  background-color: #313747;
+}
+
+.play-btn-container[focus-select=true][focus-bg=true] {
+  background-image: linear-gradient(rgba(37, 128, 255, 0), rgba(33, 137, 255, 0.45));
+  border: 0.641vh solid #1f8eff;
+}
+
+.video[focus-select=true] {
+  background-image: linear-gradient(rgba(37, 128, 255, 0), rgba(33, 137, 255, 0.45));
+  border: 0.641vh solid #1f8eff;
+}
+
+.wx-video-cover-play-button[focus-select=true] {
+  background-image: linear-gradient(rgba(37, 128, 255, 0), rgba(33, 137, 255, 0.45));
+  border: 0.641vh solid #1f8eff;
+}
+
+/* 
+.cinema-card[focus-select=true]::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 4px;
+  overflow: hidden;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0), #1d8dff 43%, #1d8dff 67%, rgba(0, 0, 0, 0));
+  z-index: 10;
+}
+
+.cinema-card[focus-select=true]{
+  background: radial-gradient(at bottom, #1f5c89, rgba(33, 39, 51, 0)) !important;
+}*/
+
+.cinema-card[focus-select=true]::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 4px;
+  overflow: hidden;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0), #1d8dff 43%, #1d8dff 67%, rgba(0, 0, 0, 0));
+  z-index: 10;
+}
+
+/* 窄屏适配 */
+/* .w1280h720 .detail-intro {
+  -webkit-column-count: 1;
+  column-count: 1;
+  column-gap: 0rpx;
+  -webkit-column-fill: auto;
+  column-fill: auto;
+  line-height: 7.385vh;
+  min-height: 100%;
+  padding-right: 5rpx;
+} */

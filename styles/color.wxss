@@ -1,0 +1,24 @@
+/* 夜间模式 */
+.night {
+  /* background:#191e26; */
+  color:#fff;
+}
+
+/* 点击效果 */
+.btn-active {
+  position: relative;
+  overflow: hidden;
+}
+.btn-active .btn-mask {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: #FFFFFF;
+  opacity: 0
+}
+.btn-active:active .btn-mask {
+  opacity: 0.3;
+}
+

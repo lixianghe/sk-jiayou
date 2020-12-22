@@ -1,0 +1,42 @@
+<!-- 页面容器 -->
+<view class="page {{colorStyle}}" wx:if="{{videoList.length>0&&retcode == 0}}" style="background:{{backgroundColor}}">
+	<!-- 页面盒子 -->
+	<scroll-view class="scroll-view-bar" scroll-x="true">
+		<view class="video-card" wx:for="{{videoList}}" wx:for-item="item" wx:for-index="idx" wx:key="id" catchtap="navDetail" data-itemId="{{item.id}}">
+			<!-- <view class="video-item" style="{{'background-image:' +'url('+item.avatar+')'}}"> -->
+			<view class="video-item">
+				<image wx:if="{{item.avatar}}" class="video-cover" src="{{item.avatar}}" binderror="imgLoadErr" data-index="{{idx}}"></image>
+				<view wx:else class="video-cover-default">
+					<image class="video-cover-img" src="{{'/images/'+colorStyle+'/movie.png'}}"></image>
+				</view>
+				<view class="video-info">
+					<view class="video-title">{{item.name}}</view>
+					<view class="video-tags,flex-row,flex-row-mid">
+						<text class="video-score">{{item.score}}</text>
+						<text class="video-fen">分</text>
+						<view class="video-seg"></view>
+						<text class="video-category">{{item.category}}</text>
+					</view>
+				</view>
+			</view>
+		</view>
+	</scroll-view>
+</view>
+
+<!-- 加载中盒子 -->
+<view class="scroll-box" style="background:{{backgroundColor}}" wx:elif="{{retcode == 0}}">
+		<view class="video-card" wx:for="{{5}}" wx:key="item">
+			<view class="video-item">
+				<!-- <image class="video-cover"></image> -->
+				<view class="video-info">
+					<view class="video-title placeholder"></view>
+					<view class="video-tags placeholder">
+						<text></text>
+					</view>
+				</view>
+			</view>
+	</view>
+</view>
+
+<Nodata code="{{retcode}}" bindrefresh="reloadData"></Nodata>
+<log></log>

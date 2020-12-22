@@ -1,0 +1,35 @@
+/* 公共样式 单位vw */
+
+view, text {
+  box-sizing: border-box;
+}
+
+/* page */
+
+page {
+  box-sizing: border-box;
+  height: 100%;
+}
+
+.page {
+  height: 100%;
+  font-size: 14rpx;
+}
+
+.flex-row, .flex-row-mid {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-row-mid {
+  align-items: center;
+}
+
+
+/* 去掉scroll滚动条 */
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
