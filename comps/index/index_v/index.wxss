@@ -247,4 +247,41 @@
   height: 54vh;
   overflow: hidden;
 }
-
+.card-nav {
+  display: flex;
+  align-items: center;
+  padding: 6.15vh 6.73vh;
+}
+.card-nav::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+.card-nav .location {
+  float: left;
+}
+.card-nav .location text {
+  float: left;
+  font-size: 4.3vh;
+  color: rgba(255,255,255, 0.7);
+}
+.card-nav .oil {
+  padding: 2vh 6vh;
+  float: left;
+  color: rgba(255,255,255, 0.7);
+  font-size: 4.9vh;
+  background: rgba(255,255,255, 0.08);
+  border-radius: 5vh;
+}
+.card-nav .brand {
+  padding: 2vh 6vh;
+  float: left;
+  color: rgba(255,255,255, 0.7);
+  font-size: 4.9vh;
+  background: rgba(255,255,255, 0.08);
+  border-radius: 5vh;
+}
+.card-nav .price {
+  float: right;
+  font-size: 4.3vh;
+}

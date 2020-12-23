@@ -13,6 +13,14 @@
 </wxs>
 <!-- 页面容器 -->
 <view class="page {{colorStyle}}" wx:if="{{videoList.length>0&&retcode == 0}}" style="background:{{backgroundColor}}">
+	<view class="card-nav">
+		<view class="location">
+			<text>腾讯北京总部</text>
+		</view>
+		<view class="oil">92#</view>
+		<view class="brand">全部品牌</view>
+		<view class="price">今日指导价 95# <text>￥6</text></view>
+	</view>
 	<!-- 页面盒子 -->
 	<scroll-view class="scroll-view-bar" scroll-x="true" bindscrolltolower="scrollRight">
 		<view class="pick-card" wx:for="{{videoList}}" wx:for-item="item" wx:for-index="idx" wx:key="id" catchtap="navDetail" data-itemId="{{item.id}}">
