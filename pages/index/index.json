@@ -1,5 +1,11 @@
 {
   "navigationBarTitleText": "生活服务类模板",
   "navigationBarBackgroundColor": "#333333",
-  "navigationBarTextStyle": "white"
+  "navigationBarTextStyle": "white",
+  "component": true,
+  "usingComponents": {
+    "IndexH": "../../comps/index/index_h/index",
+    "IndexV": "../../comps/index/index_v/index",
+    "IndexN": "../../comps/index/index_n/index"
+  }
 }

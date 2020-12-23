@@ -1,0 +1,18 @@
+@import "./personalCenter-horizontal.wxss";
+@import "./personalCenter-vertical.wxss";
+page {
+  margin: 0;
+  padding: 0;
+}
+page view, 
+page button, 
+page image {
+  box-sizing: content-box
+}
+.tsBtn {
+  position: fixed;
+  top: 4vh;
+  left: 28vh;
+  width: 20vh;
+  height: 10vh;
+}

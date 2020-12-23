@@ -1,7 +1,8 @@
 {
   "pages": [   
     "pages/index/index",
-    "pages/detail/index"
+    "pages/detail/index",
+    "pages/personalCenter/personalCenter"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -10,6 +11,25 @@
     "navigationBarTextStyle": "black",
     "pageOrientation": "auto",
     "mossPkgName": "lifeTemplate"
+  },
+  "tabBar": {
+    "color": "#cacbd0",
+    "selectedColor": "#fa6500",
+    "backgroundColor": "#202020",
+    "list": [
+    {
+      "pagePath": "pages/index/index",
+      "iconPath": "images/index.png",
+      "selectedIconPath": "images/index-select.png",
+      "text": "主页"
+    },
+    {
+      "pagePath": "pages/personalCenter/personalCenter",
+      "iconPath": "images/admin.png",
+      "selectedIconPath": "images/admin-select.png",
+      "text": "我的"
+    }
+  ]
   },
   "usingComponents": {
     "Nodata": "/comps/display_no_data/display_no_data",

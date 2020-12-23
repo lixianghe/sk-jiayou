@@ -1,5 +1,4 @@
-/**index.wxss**/
-
+@import "../../../styles/base.wxss";
 .page {
   height: 100vh;
   white-space: nowrap;
@@ -71,14 +70,6 @@
   left: 0;
   font-size: 3.5vh;
 }
-
-.pick-tag {
-  background: rgba(0,0,0,0.4);
-  border-radius: 1vh;
-  padding: 0.1vh 1.5vh;
-  margin-left: 2vh;
-}
-
 .pick-title {
   font-size: 6vh;
   display: flex;
@@ -87,13 +78,7 @@
   padding: 3vh 5vh;
   height: 20vh;
 }
-.pick-address {
-  padding: 1.5vh 5vh;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  color: #ccc;
-}
+
 
 .pick-navTo {
   display: inline-block;
@@ -137,91 +122,8 @@
   white-space: normal;
   color: #ccc;
   margin: 3.5vh 0;
+  font-size: 4vh;
 }
 .npick-title {
   margin-top: 6vh;
 }
-
-.vpick-item {
-  overflow: hidden;
-  width: 94vh;
-  height: 100%;
-  border-radius: 1.923vh;
-  background-image: linear-gradient(#26303f, #1c232e);
-  position: relative;
-  padding: 6vh 3vh;
-}
-.vpick-img {
-  position: relative;
-  width: 32vh;
-  height: 42vh;
-  display: inline-block;
-  overflow: hidden;
-  vertical-align: top;
-}
-.vpick-titL {
-  display: inline-block;
-  width: 55vh;
-}
-.vpick-titL .pick-title {
-  padding: 0 2vh 0 0;
-  height: 24vh;
-}
-.vpick-tag {
-  font-size: 3.5vh;
-  background: rgba(0,0,0,0.4);
-  border-radius: 1vh;
-  display: inline-block;
-  height: 6.5vh;
-  padding: 1vh;
-  margin-top: 1.5vh;
-  margin-left: 1.5vh;
-}
-.tag-group {
-  display: flex;
-  padding-right: 2vh;
-  margin-top: 4vh;
-}
-.vindex-tag {
-  font-size: 6vh; 
-}
-.vpick-item .pick-address  {
-  padding: 0;
-  margin: 3vh 0
-}
-.vpick-iconInfo {
-  border-top: 1px solid #ccc;
-  margin-top: 8vh;
-  padding: 2.5vh;
-}
-.vpick-navTo {
-  display: inline-block;
-  width: 4vh;
-  height: 4vh;
-  padding: 3.077vh;
-  padding-left: 6vh;
-  vertical-align: middle;
-}
-.but-tit {
-  margin-right: 18vh;
-}
-.vpick-cardBig {
-  height: 50vh;
-  width: 40vh;
-}
-.vpick-titB {
-  width: 48vh;
-}
-.spick-item {
-  overflow: hidden;
-  width: 49.5vh;
-  height: 100%;
-  border-radius: 1.923vh;
-  background-image: linear-gradient(#26303f, #1c232e);
-  position: relative;
-}
-.spick-img {
-  height: 54vh;
-  overflow: hidden;
-}
-

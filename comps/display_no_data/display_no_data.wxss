@@ -41,10 +41,10 @@
   line-height: 14.423vh;
   font-size: 5.769vh;
 }
-
+/* 
 button::after {
   border-radius: 0.641vh;
-}
+} */
 
 /* 白天模式 */
 
@@ -67,8 +67,8 @@ button::after {
   color: #fff;
   background-color: #596680;
 }
-
+/* 
 .btn[focus-select=true][focus-bg=true] {
   background-image: linear-gradient(rgba(37, 128, 255, 0), rgba(33, 137, 255, 0.45));
   border: 0.641vh solid #1f8eff;
-}
+} */

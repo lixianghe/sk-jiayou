@@ -1,0 +1,47 @@
+<!-- 页面容器 -->
+<view class="page {{colorStyle}}" wx:if="{{videoList.length>0&&retcode == 0}}" style="background:{{backgroundColor}}">
+	<!-- 页面盒子 -->
+	<scroll-view class="scroll-view-bar" scroll-x="true">
+		<view class="pick-card" wx:for="{{videoList}}" wx:for-item="item" wx:for-index="idx" wx:key="id" catchtap="navDetail" data-itemId="{{item.id}}">
+			<!-- 无图状态 -->
+			<view class="pick-item" wx:if="{{ imgType === 'no' }}">
+				<view class="pick-title npick-title">{{item.mainTitle}}</view>
+				<view class="pick-title">{{item.mainLabel}}</view>
+				<view class="n-tag">
+					<text class="npick-tag" wx:for="{{item.subLabel.length > 3 ? 3: item.subLabel.length}}" wx:for-item="cell" wx:key="index">{{item.subLabel[cell]}}</text>
+				</view>
+				<view class="npick-address">地址信息地址信息地址信息地址信息</view>
+
+				<!-- 无图信息最多态 -->
+				<view class="pick-iconInfo" wx:if="{{button.length === 2}}">
+					<image class="pick-navTo" src="{{button[0].icon}}" catchtap="navToMap"></image>
+					<image class="pick-navTo" src="{{button[1].icon}}" catchtap="" style="background-color: #666;"></image>
+				</view>
+
+				<!-- 无图信息中间态 -->
+				<view class="pick-iconOne" catchtap="navToMap" wx:if="{{button.length === 1}}">
+					<image class="pick-navToOne" src="{{button[0].icon}}" ></image>
+					<text>{{button[0].text}}</text>
+				</view>
+			</view>
+		</view>
+	</scroll-view>
+</view>
+
+<!-- 加载中盒子 -->
+<view class="scroll-box" style="background:{{backgroundColor}}" wx:elif="{{retcode == 0}}">
+		<view class="pick-card" wx:for="{{5}}" wx:key="item">
+			<view class="pick-item">
+				<!-- <image class="pick-cover"></image> -->
+				<view class="pick-info">
+					<view class="pick-title placeholder"></view>
+					<view class="pick-tags placeholder">
+						<text></text>
+					</view>
+				</view>
+			</view>
+	</view>
+</view>
+
+<Nodata code="{{retcode}}" bindrefresh="reloadData"></Nodata>
+<log></log>

@@ -1,0 +1,183 @@
+/* 视频详情区域 */
+
+.page {
+    overflow: hidden;
+    height: 100vh;
+    position: relative;
+  }
+  
+  .scroll {
+    white-space: nowrap;
+    height: 100%;
+    display: flex;
+    position: absolute;
+    padding: 8.6vh 6.72vh;
+    transition: all .2s;
+  }
+  
+  /* 左侧视频摘要信息窗口 */
+  
+  .lfInfo-info {
+    overflow: hidden;
+    height: 100%;
+    position: relative;
+    display: inline-block;
+    vertical-align:top;
+  }
+  
+  /* 封面图窗口 */
+  
+  .lfInfo-cover {
+    width: 58.4vh;
+    height: 100%;
+    display: inline-block;
+    vertical-align:top;
+    position: relative;
+  }
+  .lfInfo-cover image {
+    width: 100%;
+    height: 78.6vh;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 1vh;
+  }
+  
+  .ifInfo-content {
+    width: 80vh;
+    height: 100%;
+    overflow: hidden;
+    white-space: normal;
+    display: inline-block;
+    margin-left: 9.87vh;
+    padding: 5vh 0;
+    position: relative;
+  }
+  .ifInfo-content .baseinfo {
+    font-size: 5.769vh;
+    position: relative;
+    line-height: 6.731vh;
+    color: #fff;
+  }
+  
+  .ifInfo-content .baseinfo .title {
+    font-size: 6.15vh;
+  }
+  .ifInfo-content .baseinfo .subtitle {
+    color: #ff6100;
+    font-size: 4.9vh;
+    margin-top: 2vh;
+  }
+  .ifInfo-content .baseinfo .description {
+    margin-top: 4.1vh;
+    font-size: 4.9vh;
+    color: #bcbcbc;
+  }
+  
+  .ifInfo-content .baseinfo .subLabel {
+    margin-top: 3.2vh;
+    color: #ff6100;
+    font-size: 4.3vh;
+  }
+  .ifInfo-content .baseinfo .subLabel text {
+    border: 1px solid #ff6100;
+    border-radius: 1vh;
+    padding: 0.4vh 2vh;
+    margin-right: 3vh;
+  }
+  
+  .ifInfo-content .baseinfo .address {
+    margin-top: 3.33vh;
+    font-size: 4.9vh;
+    color: #bcbcbc;
+  }
+  .lfInfo-info .btns-content {
+    display: flex;
+    color: #fff;
+    font-size: 4vh;
+    position: absolute;
+    left: 0;
+    bottom: 5vh;
+  }
+  .lfInfo-info .btns-content .btns-view {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 4.9vh;
+    background: #252525;
+    width: 35.64vh;
+    height: 12.3vh;
+    border-radius: 10vh;
+    font-size: 4.9vh;
+  }
+  .lfInfo-info .btns-content .btn-img {
+    width: 9.8vh;
+    height: 9.8vh;
+    margin-right: 0.65vh;
+  }
+  
+  /* 右侧视频详细信息窗口 */
+  
+  
+  .lfInfo-detail {
+    width: 116.9vh;
+    height: 100%;
+    position: relative;
+    display: inline-block;
+    vertical-align:top;
+    margin-left: 9.8vh;
+  }
+  
+  .lfInfo-detail .label-view {
+    display: flex;
+    color: #fff;
+    font-size: 5.5vh;
+  }
+  .lfInfo-detail .label-view .title {
+    padding: 2vh 1vh;
+    width: 21vh;
+    margin-right: 12.5vh;
+  }
+  .lfInfo-detail .label-view .active-tap {
+    color: #fa6500;
+  }
+  .lfInfo-detail .underLine {
+    height: 1vh;
+    width: 19vh;
+    background: #fa6500;
+    border-radius: 3vh;
+  }
+  .lfInfo-detail .text-content {
+    white-space: normal;
+    font-size: 5vh;
+    color:#a8a8a8;
+    line-height: 8vh;
+  }
+  .textScroll {
+    height: 65vh;
+    margin-top: 4.9vh;
+  }
+  .no-info {
+    padding-left: 0;
+  }
+  /* 设置滚动条样式 */
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+    color:#ffffff;
+  }
+  /*定义滚动条轨道 内阴影+圆角*/
+  ::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background-color:#30303e;
+  }
+  
+  /*定义滑块 内阴影+圆角*/
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+    background-color:#595965;
+  }

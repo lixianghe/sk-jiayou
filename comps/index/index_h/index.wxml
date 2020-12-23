@@ -1,0 +1,86 @@
+<wxs module="m1">
+  var formatVal = function (val) {
+		// 判断参数是数组，instanceof 不可用 暂时先这么判断
+    return typeof val === 'object' ? val[0] : [val]
+  }
+	var formatNum = function (val, num) {
+		return val.substring(0, num)
+	}
+  module.exports = {
+		formatVal: formatVal, 
+		formatNum: formatNum
+	};
+</wxs>
+<!-- 页面容器 -->
+<view class="page {{colorStyle}}" wx:if="{{videoList.length>0&&retcode == 0}}" style="background:{{backgroundColor}}">
+	<!-- 页面盒子 -->
+	<scroll-view class="scroll-view-bar" scroll-x="true">
+		<view class="pick-card" wx:for="{{videoList}}" wx:for-item="item" wx:for-index="idx" wx:key="id" catchtap="navDetail" data-itemId="{{item.id}}">
+			<!-- 横图信息最多态 -->
+			<view class="pick-item h1" wx:if="{{ imgType === 'h1' }}">
+				<view class="pick-img">
+					<image class="pick-cover" src="{{item.image}}" binderror="imgLoadErr" data-index="{{idx}}"></image>
+					<view class="pick-tagBox">
+						<text class="pick-tag" wx:for="{{item.subLabel.length > 2 ? 2: item.subLabel.length}}" wx:for-item="cell" wx:key="index">{{m1.formatNum(item.subLabel[cell], 4)}}</text>
+					</view>
+				</view>
+				<view class="pick-title">{{m1.formatNum(item.mainTitle, 24)}}</view>
+				<view class="pick-address" >{{m1.formatVal(item.subTitle)}}</view>
+        <!-- 两个按钮 -->
+				<view class="pick-iconInfo" wx:if="{{button.length === 2}}">
+					<image class="pick-navTo" src="{{button[0].icon}}" catchtap="navToMap"></image>
+					<image class="pick-navTo" src="{{button[1].icon}}" catchtap=""></image>
+				</view>
+        <!-- 一个按钮 -->
+				<view class="pick-iconOne" catchtap="navToMap" wx:if="{{button.length === 1}}">
+					<image class="pick-navToOne" src="{{button[0].icon}}" ></image>
+					<text>{{button[0].text}}</text>
+				</view>
+      </view>
+      
+      <!-- 横图信息中间态 -->
+			<view class="pick-item h2" wx:if="{{ imgType === 'h2' }}">
+				<view class="pick-img pick-cardMiddle">
+					<image class="pick-cover" src="{{item.image}}" binderror="imgLoadErr" data-index="{{idx}}"></image>
+					<view class="pick-tagBox">
+						<text class="pick-tag" wx:for="{{item.subLabel.length > 2 ? 2: item.subLabel.length}}" wx:for-item="cell" wx:key="index">{{m1.formatNum(item.subLabel[cell], 4)}}</text>
+					</view>
+				</view>
+				<view class="pick-title">{{m1.formatNum(item.mainTitle, 24)}}</view>
+
+				<view class="pick-iconOne" catchtap="navToMap" wx:if="{{button.length === 1}}">
+					<image class="pick-navToOne" src="{{button[0].icon}}" ></image>
+					<text>{{button[0].text}}</text>
+				</view>
+			</view>
+			<!-- 横图信息最少态 -->
+			<view class="pick-item h3" wx:if="{{ imgType === 'h3' }}">
+				<view class="pick-img pick-cardSmall">
+					<image class="pick-cover" src="{{item.image}}" binderror="imgLoadErr" data-index="{{idx}}"></image>
+					<view class="pick-tagBox">
+						<text class="pick-tag" wx:for="{{item.subLabel.length > 2 ? 2: item.subLabel.length}}" wx:for-item="cell" wx:key="index">{{m1.formatNum(item.subLabel[cell], 4)}}</text>
+					</view>
+				</view>
+				<view class="pick-title">{{m1.formatNum(item.mainTitle, 24)}}</view>
+				<view class="pick-address" >{{m1.formatVal(item.subTitle)}}</view>
+      </view>
+		</view>
+	</scroll-view>
+</view>
+
+<!-- 加载中盒子 -->
+<view class="scroll-box" style="background:{{backgroundColor}}" wx:elif="{{retcode == 0}}">
+		<view class="pick-card" wx:for="{{5}}" wx:key="item">
+			<view class="pick-item">
+				<!-- <image class="pick-cover"></image> -->
+				<view class="pick-info">
+					<view class="pick-title placeholder"></view>
+					<view class="pick-tags placeholder">
+						<text></text>
+					</view>
+				</view>
+			</view>
+	</view>
+</view>
+
+<Nodata code="{{retcode}}" bindrefresh="reloadData"></Nodata>

@@ -1,0 +1,250 @@
+@import "../../../styles/base.wxss";
+.page {
+  height: 100vh;
+  white-space: nowrap;
+  padding: 2.404vh 0;
+}
+
+/* 区块窗口 */
+
+.scroll-box {
+  height: 100vh;
+  white-space: nowrap;
+  /* padding: 2.404vh 0; */
+}
+
+.scroll-view-bar {
+  height: 100%;
+  margin-top: 15vh;
+  overflow-anchor: auto;
+}
+
+/* 每一个视频窗口 */
+
+.pick-card {
+  display: inline-block;
+  /* width: 72.115vh; */
+  height: 61.29vh;
+  /* padding: 0 2.006vh; */
+  /* margin-top: 14.94vh; */
+  margin-left: 6.12vh;
+}
+
+/* .pick-card:first-child {
+  margin-left: 4.968vh;
+} */
+
+.pick-card:last-child {
+  margin-right: 6.12vh;
+}
+
+/* 每一个视频窗口尺寸 */
+
+.pick-cover {
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+.pick-cardSmall {
+  height: 53vh;
+}
+
+.pick-tagBox {
+  position: absolute;
+  bottom: 2vh;
+  left: 0;
+  font-size: 3.5vh;
+}
+
+.pick-tag {
+  background: rgba(0,0,0,0.4);
+  border-radius: 1vh;
+  padding: 0.1vh 1.5vh;
+  margin-left: 2vh;
+}
+
+.pick-title {
+  font-size: 5.16vh;
+  display: flex;
+  /* line-height: 7.5vh; */
+  /* align-items: center; */
+  white-space: normal;
+  /* padding: 3vh 5vh; */
+  /* height: 20vh; */
+}
+.pick-address {
+  padding: 1.5vh 5vh;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  color: #ccc;
+  width: 43.22vh;
+  font-size: 4vh;
+  height: 6.3vh;
+  display: inline-block;
+  vertical-align: super;
+}
+
+.pick-navTo {
+  display: inline-block;
+  width: 4vh;
+  height: 4vh;
+  padding: 3.077vh;
+  background-color: rgb(62, 143, 255);
+  border-radius: 50%;
+  margin: 1vh 11vh;
+}
+.pick-iconOne {
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 2vh;
+  border-top: 1px solid #444;
+  text-align: center;
+  padding: 0.5vh 0;
+}
+.pick-navToOne {
+  display: inline-block;
+  width: 4.5vh;
+  height: 4.5vh;
+  padding: 3.077vh 0;
+  margin: -0.5vh 2vh 0 0vh;
+  vertical-align: middle;
+}
+
+.vpick-item {
+  overflow: hidden;
+  width: 85.8vh;
+  height: 100%;
+  border-radius: 1.2vh;
+  background-color: #2d2d2d;
+  padding: 0vh 4.3vh 0 4.43vh;
+}
+.vpick-img {
+  width: 30.32vh;
+  height: 30.32vh;
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  margin-left: 3.2vh;
+  margin-top: 7.74vh;
+  border-radius: 1.29vh;
+}
+.vpick-titL {
+  display: inline-block;
+  width: 44.73vh;
+  margin-top: 5.74vh;
+}
+.vpick-titL .pick-title {
+  /* padding: 0 2vh 0 0; */
+  height: 14.43vh;
+  line-height: 9.43vh;
+}
+.vpick-tag {
+  border-radius: 0.89vh;
+  /* border: 1px solid #ff6100; */
+  background-color: rgba(255,76,59, 0.3);
+  display: inline-block;
+  height: 5.8vh;
+  padding: 0 2.73vh;
+  line-height: 5.8vh;
+  margin-right: 2.5vh;
+  font-size: 3.69vh;
+  color: #ff4c3b
+}
+.invalidName {
+  width: 3vh;
+  height: 4vh;
+  vertical-align: inherit;
+}
+.vindexTagmain {
+  font-size: 6.15vh;
+  margin: 0 2vh 0 1vh;
+  color: #ff4c3b;
+}
+.cancleText {
+  font-size: 4.3vh;
+  color: rgba(255,255,255, 0.5);
+  text-decoration: line-through;
+}
+.vpick-tag:last-child {
+  margin-right: 0;
+}
+.tag-group {
+  display: flex;
+  margin-top: 1.97vh;
+}
+.vindex-tag {
+  font-size: 6.1vh;
+  color: #ff6100;
+  height: 9.04vh;
+  line-height: 9.04vh;
+  margin-top: 4.43vh;
+  display: inline-block;
+}
+.pick-subTitle {
+  height: 12.8vh; /*暂定 */
+  margin-top: 2.84vh;
+}
+.vpick-item .pick-address  {
+  padding: 0;
+  /* margin: 3vh 0 */
+}
+.vpick-iconInfo {
+  border-top: 0.27vh solid #3c3c3c;
+  display: flex;
+  width: 86.12vh;
+  margin-left: -4.43vh;
+  height: 13.5vh;
+  justify-content: center;
+}
+.navToMap {
+  display: inline-block;
+  width: 26.45vh;
+  border-radius: 4vh;
+  height: 8.5vh;
+  font-size: 5vh;
+  background-color: #3f82ff;
+  vertical-align: super;
+  line-height: 9vh;
+}
+.btn-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+}
+.btn-group:nth-child(2) {
+  border-left: 0.27vh solid #3c3c3c;
+}
+.vpick-navTo {
+  display: inline-block;
+  width: 6.81vh;
+  height: 6.81vh;
+  vertical-align: initial;
+  margin-left: 2vh;
+}
+.but-tit {
+  font-size: 4.89vh;
+  margin-left: 1vh;
+}
+.vpick-cardBig {
+  height: 50vh;
+  width: 34vh;
+  margin-bottom: 3.7vh;
+}
+.vpick-titB {
+  width: 40vh;
+}
+.spick-item {
+  overflow: hidden;
+  width: 49.5vh;
+  height: 100%;
+  border-radius: 1.923vh;
+  background-image: linear-gradient(#26303f, #1c232e);
+  position: relative;
+}
+.spick-img {
+  height: 54vh;
+  overflow: hidden;
+}
+

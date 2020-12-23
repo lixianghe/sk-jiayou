@@ -1,0 +1,31 @@
+
+/* 占位符背景 */
+
+.placeholder {
+  background-color: #252d3d;
+}
+
+/* 白天模式 */
+
+.light {
+  color: rgba(255, 255, 255, 1);
+}
+
+.light .pick-item {
+  background-image: linear-gradient(#cdd7e9,#a5b6d4);
+}
+
+.light .pick-cover-default  {
+  background-image: linear-gradient(rgba(145,171,226,0),rgba(145,171,226,0.3),rgba(84,107,150,0.5));
+}
+
+/* 夜间模式 */
+
+.dark {
+  color: rgba(255, 255, 255, 1);
+}
+
+.dark .pick-item  {
+  /* background-image: linear-gradient(#26303f, #1c232e); */
+  background-color: #2d2d2d;
+}
