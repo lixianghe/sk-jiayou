@@ -1,7 +1,7 @@
-<view class="container {{colorStyle}}" wx:if="{{code=='1'}}" style="background-color:{{backgroundColor}}">
-  <image class="icon icon-blank" src="{{'/images/'+colorStyle+'/no_data.png'}}"></image>
-  <view class="text">很抱歉，暂未获取到上映信息</view>
-  <button class="btn" data-key="{{key}}" catchtap="btnClick">重新加载</button>
+<view class="container {{colorStyle}} noData" wx:if="{{code=='1'}}" style="background-color:{{backgroundColor}}">
+  <image class="icon" src="{{'/images/'+colorStyle+'/locationFail.png'}}"></image>
+  <view class="text">为浏览过加油站</view>
+  <button class="btn" data-key="{{key}}" catchtap="btnClick">查看周边的加油站</button>
 </view>
 
 <view class="container {{colorStyle}}" wx:if="{{code=='2'}}" style="background-color:{{backgroundColor}}">
@@ -11,8 +11,8 @@
 </view>
 
 <view class="container {{colorStyle}}" wx:if="{{code=='3'}}" style="background-color:{{backgroundColor}}">
-  <image class="icon" src="{{'/images/'+colorStyle+'/server.png'}}"></image>
-  <view class="text">服务器异常\n请稍后重试</view>
+  <image class="icon" src="{{'/images/'+colorStyle+'/locationFail.png'}}"></image>
+  <view class="text">无法获取位置信息，请重试</view>
   <button class="btn" data-key="{{key}}" catchtap="btnClick">重新加载</button>
 </view>
 

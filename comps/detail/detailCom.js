@@ -46,7 +46,7 @@ module.exports = Behavior({
     })
   },
   ready: function () {
-    this.getBoxWidth()
+    // this.getBoxWidth()
   },
 
   methods: {

@@ -12,92 +12,100 @@
 	};
 </wxs>
 <!-- 页面容器 -->
-<view class="page {{colorStyle}}" wx:if="{{videoList.length>0&&retcode == 0}}" style="background:{{backgroundColor}}">
-	<view class="card-nav">
-		<view class="location">
-			<text>腾讯北京总部</text>
-		</view>
-		<view class="oil">92#</view>
-		<view class="brand">全部品牌</view>
-		<view class="price">今日指导价 95# <text>￥6</text></view>
-	</view>
-	<!-- 页面盒子 -->
-	<scroll-view class="scroll-view-bar" scroll-x="true" bindscrolltolower="scrollRight">
-		<view class="pick-card" wx:for="{{videoList}}" wx:for-item="item" wx:for-index="idx" wx:key="id" catchtap="navDetail" data-itemId="{{item.id}}">
-			<!-- 竖图信息最多态 -->
-			<view class="vpick-item" wx:if="{{ imgType === 'v1' }}">
-				<view class="vpick-titL">
-					<view class="pick-title">{{item.mainTitle}}</view>
-					<view class="vindex-tag">
-						<image src="../../../images/dark/invalid_name.png" class="invalidName"></image>
-						<text class="vindexTagmain">{{item.mainLabel}}</text>
-						<text class="cancleText">5.09</text>
-					</view>
-					<view class="tag-group">
-						<text class="vpick-tag" wx:for="{{item.subLabel.length > 2 ? 2: item.subLabel.length}}" wx:for-item="cell" wx:key="index">{{item.subLabel[cell]}}</text>
-					</view>
-				</view>
-				<view class="vpick-img {{!item.subTitle ? 'vpick-cardBig' : ''}}">
-					<image wx:if="{{item.image}}" class="pick-cover" src="{{item.image}}" binderror="imgLoadErr" data-index="{{idx}}"></image>
-				</view>
-				
-				<view class="pick-subTitle">
-					<view class="pick-address" wx:for="{{ m2.formatVal(item.subTitle) }}" wx:for-item="curr" wx:key="index">{{ curr }}</view>
-					<view class="navToMap" catchtap="navToMap">
-						<image class="vpick-navTo" src="{{button[0].icon}}" catchtap="navToMap"></image>
-						<text style="vertical-align: text-bottom;">5.5km</text>
-					</view>
-				</view>
+<view class="page {{colorStyle}}" wx:if="{{videoList.length>0}}" style="background:{{backgroundColor}}">
+  <view class="card-nav">
+    <view class="location">
+        <image class="locationPic loading" src="{{locationPic}}" wx:if="{{isLoading}}"></image>
+        <image class="locationPic" src="{{locationPic}}" wx:else></image>
+        <text class="address" bindtap="loadLocation">{{address}}</text>
+      <view class="oil" bindtap="showOil">
+        <text>92#</text>
+        <image src="../../../images/dark/icon.png"></image>
+      </view>
+      <view class="brand" bindtap="showBrand">
+        <text>全部品牌</text>
+        <image src="../../../images/dark/icon.png"></image>
+      </view>
+    </view>
+    <view></view>
+    <view class="price">
+      <text>今日指导价</text>
+      <swiper current="{{swiperCurrent}}" interval = '3000' autoplay = 'true' circular="true" vertical="true" class="swiper">
+       <block data-item="{{item}}" wx:for="{{swiperArr}}" wx:key="id">
+       <swiper-item  class="swiper-item">
+         {{item.oil}}
+         <text class="num">￥{{item.num}}</text>
+       </swiper-item>
+       </block>
+      </swiper>
+    </view>
 
-			</view>
-			<!-- 竖图信息中间态 -->
-			<view class="vpick-item" wx:if="{{ imgType === 'v2' }}">
-				<view class="vpick-titL vpick-titB">
-					<view class="pick-title">{{item.mainTitle}}</view>
-					<view class="vindex-tag">{{item.mainLabel}}</view>
-					<view class="tag-group">
-						<text class="vpick-tag" wx:for="{{item.subLabel.length > 2 ? 2: item.subLabel.length}}" wx:for-item="cell" wx:key="index">{{m2.formatNum(item.subLabel[cell], 3)}}</text>
-					</view>
-				</view>
-				<view class="vpick-img vpick-cardBig">
-					<image wx:if="{{item.image}}" class="pick-cover" src="{{item.image}}" binderror="imgLoadErr" data-index="{{idx}}"></image>
-				</view>
-				
-				<!-- 按钮 -->
-				<view class="vpick-iconInfo">
-					<view class="btn-group" wx:for="{{ button }}" wx:for-item="btn" wx:key="index">
-						<image class="vpick-navTo" src="{{btn.icon}}" catchtap="navToMap"></image>
-						<text class="but-tit">{{btn.text}}</text>
-					</view>
-				</view>
-			</view>
-			<!-- 竖图最小状态 -->
-			<view class="spick-item" wx:if="{{ imgType === 'v3'}}">
-				<view class="spick-img">
-					<image wx:if="{{item.image}}" class="pick-cover" src="{{item.image}}" binderror="imgLoadErr" data-index="{{idx}}"></image>
-				</view>
-				<view class="pick-title">{{item.mainTitle}}</view>
-				<view class="pick-address">{{m2.formatVal(item.subTitle)}}</view>
-			</view>
+    
 
-		</view>
-	</scroll-view>
+
+  </view>
+  <!-- 页面盒子 -->
+  <scroll-view class="scroll-view-bar" scroll-x="true" bindscrolltolower="scrollRight">
+    <view class="pick-card" wx:for="{{videoList}}" wx:for-item="item" wx:for-index="idx" wx:key="id" catchtap="navDetail" data-itemId="{{item.id}}">
+      <!-- 竖图信息最多态 -->
+      <view class="vpick-item" bindtap="linkInfo">
+        <view class="vpick-titL">
+          <view class="pick-title">{{item.mainTitle}}</view>
+          <view class="vindex-tag">
+            <image src="../../../images/dark/invalid_name.png" class="invalidName"></image>
+            <text class="vindexTagmain">{{item.mainLabel}}</text>
+            <text class="cancleText">5.09</text>
+          </view>
+          <view class="tag-group">
+            <text class="vpick-tag" wx:for="{{item.subLabel.length > 2 ? 2: item.subLabel.length}}" wx:for-item="cell" wx:key="index">{{item.subLabel[cell]}}</text>
+          </view>
+        </view>
+        <view class="vpick-img {{!item.subTitle ? 'vpick-cardBig' : ''}}">
+          <image wx:if="{{item.image}}" class="pick-cover" src="{{item.image}}" binderror="imgLoadErr" data-index="{{idx}}"></image>
+        </view>
+        <view class="pick-subTitle">
+          <view class="pick-address" wx:for="{{ m2.formatVal(item.subTitle) }}" wx:for-item="curr" wx:key="index">
+            {{ curr }}
+          </view>
+          <view class="navToMap" catchtap="navToMap" data-lat="{{item.lat}}" data-lng="{{item.lng}}" data-address="{{item.address}}">
+            <image class="vpick-navTo" src="{{button[0].icon}}" catchtap="navToMap"></image>
+            <text style="vertical-align: text-bottom;">5.5km</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+
+
+  <Nodata code="{{retcode}}" bindrefresh="reloadData"></Nodata>
 </view>
 
-<!-- 加载中盒子 -->
-<view class="scroll-box" style="background:{{backgroundColor}}" wx:elif="{{retcode == 0}}">
-		<view class="pick-card" wx:for="{{5}}" wx:key="item">
-			<view class="pick-item">
-				<!-- <image class="pick-cover"></image> -->
-				<view class="pick-info">
-					<view class="pick-title placeholder"></view>
-					<view class="pick-tags placeholder">
-						<text></text>
-					</view>
-				</view>
-			</view>
-	</view>
+
+
+<!-- 油号的弹框 -->
+<view class="oilCard" animation="{{oilAnimation}}">
+  
+  <image bindtap="closeOil" src="../../../images/dark/closeList.png" />
+  <view class="cardContent">
+    <text class="oilTitle">汽油</text>
+    <view class="oiltypes">
+      <view bindtap="selectOil" data-val="{{item.value}}" wx:key="index" class="{{currentOil == item.value ? 'active' : ''}}" wx:for="{{oilList}}">{{item.label}}</view>
+    </view>
+  </view>
 </view>
 
-<Nodata code="{{retcode}}" bindrefresh="reloadData"></Nodata>
-<log></log>
+<!-- 品牌的弹框 -->
+<view class="oilCard brandCard" animation="{{brandAnimation}}">
+  
+  <image bindtap="closeBrand" src="../../../images/dark/closeList.png" />
+  <view class="cardContent">
+    <text class="oilTitle">请选择品牌</text>
+    <view class="oiltypes">
+      <view bindtap="selectBrand" data-val="{{item.value}}" wx:key="index" class="{{currentBrand == item.value ? 'active' : ''}}" wx:for="{{brandList}}">{{item.label}}</view>
+    </view>
+  </view>
+</view>
+
+
+<view class="mask" wx:if="{{showMaskOil}}" bindtap="closeOil"></view>
+<view class="mask" wx:if="{{showMaskBrand}}" bindtap="closeBrand"></view>

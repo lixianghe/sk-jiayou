@@ -37,7 +37,10 @@ const pageConfig = {
       "subLabel": ["加油200省25.34"],
       "duration": 122,
       "image": "http://p1.meituan.net/400.400/moviemachine/5cbf9a626b7ed27c96ca3c748655b3ec2550103.jpg",
-      "score": "9.4"
+      "score": "9.4",
+      "lat": "30.506049",
+      "lng": "114.393118",
+      "address": "武汉市雄楚大道关西小区"
     }, {
       "id": "1331267",
       "mainTitle": "壳牌华城欣加油站",
@@ -46,7 +49,10 @@ const pageConfig = {
       "subLabel": ["青春"],
       "duration": 97,
       "image": "http://p1.meituan.net/400.400/movie/c16b0a68f95d884d428f339f8eacce834410200.jpg",
-      "score": "9.2"
+      "score": "9.2",
+      "lat": "30.506049",
+      "lng": "114.393118",
+      "address": "武汉市雄楚大道关西小区"
     },{
       "id": "1339160",
       "mainTitle": "中图能源加油站",

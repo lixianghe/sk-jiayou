@@ -2,7 +2,6 @@
 .page {
   height: 100vh;
   white-space: nowrap;
-  padding: 2.404vh 0;
 }
 
 /* 区块窗口 */
@@ -14,8 +13,6 @@
 }
 
 .scroll-view-bar {
-  height: 100%;
-  margin-top: 15vh;
   overflow-anchor: auto;
 }
 
@@ -24,7 +21,7 @@
 .pick-card {
   display: inline-block;
   /* width: 72.115vh; */
-  height: 61.29vh;
+  height: 62.5vh;
   /* padding: 0 2.006vh; */
   /* margin-top: 14.94vh; */
   margin-left: 6.12vh;
@@ -113,15 +110,15 @@
 
 .vpick-item {
   overflow: hidden;
-  width: 85.8vh;
+  width: 87.8vh;
   height: 100%;
   border-radius: 1.2vh;
-  background-color: #2d2d2d;
+  background-color: rgba(255,255,255, 0.1);
   padding: 0vh 4.3vh 0 4.43vh;
 }
 .vpick-img {
-  width: 30.32vh;
-  height: 30.32vh;
+  width: 30.8vh;
+  height: 30.8vh;
   display: inline-block;
   overflow: hidden;
   vertical-align: top;
@@ -179,11 +176,13 @@
   height: 9.04vh;
   line-height: 9.04vh;
   margin-top: 4.43vh;
-  display: inline-block;
+  /* display: inline-block; */
 }
 .pick-subTitle {
   height: 12.8vh; /*暂定 */
   margin-top: 2.84vh;
+  display: flex;
+  align-items: center;
 }
 .vpick-item .pick-address  {
   padding: 0;
@@ -206,6 +205,7 @@
   background-color: #3f82ff;
   vertical-align: super;
   line-height: 9vh;
+  margin-left: 6.5vh;
 }
 .btn-group {
   display: flex;
@@ -250,7 +250,8 @@
 .card-nav {
   display: flex;
   align-items: center;
-  padding: 6.15vh 6.73vh;
+  padding: 6.15vh 6.73vh 8.2vh;
+  justify-content: space-between;
 }
 .card-nav::after {
   content: '';
@@ -258,30 +259,132 @@
   clear: both;
 }
 .card-nav .location {
-  float: left;
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+.card-nav .location .locationPic {
+  width: 6.766vh;
+  height: 6.766vh;
+}
+.card-nav .location .loading {
+  animation: headRotate 2s linear infinite
+}
+@keyframes headRotate{
+  0% {transform: rotate(0deg);}
+  50% {transform: rotate(180deg);}
+  100% {transform: rotate(360deg);}
 }
 .card-nav .location text {
   float: left;
   font-size: 4.3vh;
   color: rgba(255,255,255, 0.7);
 }
+.card-nav .location .address {
+  width: 45vh;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
 .card-nav .oil {
-  padding: 2vh 6vh;
+  height: 11vh;
+  line-height: 11vh;
+  padding: 0 4vh;
   float: left;
   color: rgba(255,255,255, 0.7);
   font-size: 4.9vh;
   background: rgba(255,255,255, 0.08);
-  border-radius: 5vh;
+  border-radius: 10vh;
+  display: flex;
+  align-items: center;
+  margin-left: 2vh;
+}
+.card-nav .oil image, .card-nav .brand image {
+  width: 6.3vh;
+  height: 6.3vh;
 }
 .card-nav .brand {
-  padding: 2vh 6vh;
+  padding: 0 4vh;
   float: left;
   color: rgba(255,255,255, 0.7);
   font-size: 4.9vh;
   background: rgba(255,255,255, 0.08);
-  border-radius: 5vh;
+  border-radius: 10vh;
+  height: 11vh;
+  line-height: 11vh;
+  display: flex;
+  align-items: center;
+  margin-left: 4.3vh;
 }
 .card-nav .price {
   float: right;
   font-size: 4.3vh;
+  color: rgba(255,255,255, 0.6);
+  display: flex;
+  align-items: center;
+}
+.card-nav .price .num {
+  color: #3f82ff;
+}
+/* 油号弹框 */
+.oilCard{
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 160vh;
+  background: #151515;
+  color: #fff;
+  padding: 8.6vh 25.5vh 0 8vh;
+  font-size: 5.5vh;
+  z-index: 6;
+  transform: translateX(-160vh);
+}
+.oilCard image {
+  position: absolute;
+  width: 20.6vh;
+  height: 11vh;
+  top: 5.535vh;
+  right: 6.766vh;
+}
+
+/* .oilCard .oiltypes {
+  
+} */
+.oilCard .oiltypes view {
+  width: 36.9vh;
+  height: 15.35vh;
+  background: rgba(255,255,255, 0.07);
+  border-radius: 2vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  float: left;
+  margin-right: 4vh;
+  margin-top: 3.84vh;
+}
+
+.brandCard {
+  width: 116.9vh;
+}
+.brandCard .oiltypes {
+  margin-top: 4.3vh;
+}
+.mask {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0,0,0, 0.8);
+  z-index: 5;
+  left: 0;
+  top: 0;
+}
+.active {
+  background: rgba(50,122,255, 0.2)!important;
+  border: 1px solid #327aff;
+}
+.swiper{
+  width: 22vh;
+  height: 5vh;
+  text-align: right;
 }

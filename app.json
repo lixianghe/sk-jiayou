@@ -1,8 +1,10 @@
 {
   "pages": [   
     "pages/index/index",
-    "pages/detail/index",
-    "pages/personalCenter/personalCenter"
+    "pages/personalCenter/personalCenter",
+    
+    "pages/detail/index"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -10,23 +12,23 @@
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black",
     "pageOrientation": "auto",
-    "mossPkgName": "lifeTemplate"
+    "mossPkgName": "funMovie"
   },
   "tabBar": {
     "color": "#cacbd0",
-    "selectedColor": "#fa6500",
+    "selectedColor": "#508dff",
     "backgroundColor": "#202020",
     "list": [
     {
       "pagePath": "pages/index/index",
-      "iconPath": "images/index.png",
-      "selectedIconPath": "images/index-select.png",
-      "text": "主页"
+      "iconPath": "images/dark/ic_72_home_nor_n_4.png",
+      "selectedIconPath": "images/dark/ic_72_home_nor_n_3.png",
+      "text": "星加油"
     },
     {
       "pagePath": "pages/personalCenter/personalCenter",
-      "iconPath": "images/admin.png",
-      "selectedIconPath": "images/admin-select.png",
+      "iconPath": "images/dark/ic_72_ic_tab_3_nor_night.png",
+      "selectedIconPath": "images/dark/ic_72_ic_tab_3_nor_night1.png",
       "text": "我的"
     }
   ]

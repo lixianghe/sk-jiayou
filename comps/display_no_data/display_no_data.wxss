@@ -1,33 +1,33 @@
 .container {
   width: 100%;
-  height: 100vh;
+  height: 78vh;
   overflow: hidden;
   position: absolute;
-  top: 0;
+  top: 22vh;
   left: 0;
   z-index: 9;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  padding-top: 10vh;
 }
 
 .icon {
   display: block;
-  width: 28.846vh;
-  height: 28.846vh;
-  margin: 0 auto;
-  margin-top: 15vh;
+  width: 19.46vh;
+  height: 19.46vh;
 }
 
 .icon-blank {
-  margin-top: 15vh;
+  margin-top: 18vh;
 }
 
 .text {
   display: block;
-  margin-top: 5.288vh;
+  margin-top: 7.288vh;
   height: 8.013vh;
   line-height: 8.013vh;
-  font-size: 5.769vh;
+  font-size: 4.92vh;
   text-align: center;
   white-space: pre-line;
 }
@@ -35,11 +35,13 @@
 .btn {
   display: block;
   margin: 0 auto;
-  margin-top: 16vh;
-  width: 72.115vh;
-  height: 14.423vh;
-  line-height: 14.423vh;
-  font-size: 5.769vh;
+  margin-top: 10vh;
+  width: 57.5vh;
+  height: 13vh;
+  line-height: 12.3vh;
+  font-size: 5.5vh;
+  border-radius: 1.5vh;
+  background: rgba(255,255,255, 0.1)!important;
 }
 /* 
 button::after {
@@ -66,6 +68,15 @@ button::after {
 .dark .btn {
   color: #fff;
   background-color: #596680;
+}
+.noData {
+  top: 0;
+  padding-top: 22vh;
+  height: 100vh;
+}
+.noData .text {
+  color: #fff;
+  font-size: 5.5vh;
 }
 /* 
 .btn[focus-select=true][focus-bg=true] {

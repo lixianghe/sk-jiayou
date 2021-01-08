@@ -1,54 +1,46 @@
 <!-- 详情样式一 -->
 <view class="page" style="background:{{backgroundColor}}">
-  <!-- <scroll-view scroll-x="{{true}}" class="scroll" scroll-left="{{scrollLeft}}" bindscroll="scrollPage"> -->
-  <view class="scroll" style="left: {{left}}px"
-    bindtouchstart="touchstart"
-    bindtouchmove="touchmove"
-    bindtouchend="touchend"
-    bindtouchcancel="touchend"
-    animation="{{animateScroll}}">
-    <view class="lfInfo-info">
-      <view class="lfInfo-cover">
-        <image src="{{detail.image}}" />
-        <!-- <video class="video" hidden="{{!playing}}" 
-          show-center-play-btn="false" 
-          id="video" 
-          src="{{detail.vd}}"
-          bindended='playEnd'
-          show-center-play-btn='false'
-          title='{{detail.mainTitle}}'
-          bindplay='videoOnPlay'
-          bindpause='videoOnPause'></video> -->
-      </view>
-      <view class="ifInfo-content">
-        <view class="baseinfo">
-          <view class="title">{{detail.mainTitle}}</view>
-          <view class="subtitle">{{detail.subTitle}}</view>
-          <view class="subLabel">
-            <text wx:for="{{detail.subLabel}}">{{item}}</text>
+  <view class="leftCard">
+    <view class="payCard">
+      <image class="payCardImage" src="../../../images/payCard.png" >
+        <view class="price">
+          <view class="priceDetail">
+            <text class="text">￥</text>
+            <text class="text">4.92</text>
+            <text class="text">/L</text>
+            <text class="text oldPrice">5.09/L</text>
           </view>
-          <view class="description">{{detail.description}}</view>
-          <view class="address">{{detail.address}}</view>
-        </view>
-        <view class="btns-content">
-          <view wx:for="{{btns}}" wx:key="index" class="btns-view" data-name="{{item.name}}" bindtap="detailClick">
-            <image class="btn-img" src="{{item.image}}" />
-            <text>{{item.text}}</text>
+          <view class="discount">
+            <view class="left">
+              <image class="image" src="../../../images/dark/xia.png"/>
+              <text>立减</text>
+            </view>
+            <view class="right">加200省26</view>
           </view>
         </view>
-      </view>
+      </image>
+      
     </view>
-    <view class="lfInfo-detail {{detail.vd === ''?'no-info':''}}">
-      <view class="label-view">
-        <view class="title{{index === currentTap ? ' active-tap' : ''}}" wx:for="{{labels}}" wx:key="index" data-index="{{index}}" bindtap="selectTap">
-          <text>{{item}}</text>
-        </view>
-      </view>
-      <view class="underLine" animation="{{lineAnimation}}"></view>
-      <scroll-view scroll-y="{{true}}" class="textScroll" scroll-top="{{scrollTop}}">
-        <view class="text-content">{{detail.textContentList[currentTap]}}</view>
-      </scroll-view>
+    <view class="payProcess">
+      <image src="../../../images/payProcess.png" />
     </view>
   </view>
-  <!-- </scroll-view> -->
+  <view class="rightCard">
+    <view class="oilName">
+      <image class="image" src="../../../images/dark/oil.png" />
+      <text>北京海淀清河加油站</text>
+    </view>
+    <view class="oilLocation">
+      <image class="image" src="../../../images/dark/invalid_name_1.png" />
+      <text>北京市海淀区圆明园西路2号</text>
+    </view>
+    <view class="oilLocation">
+      <image class="image" src="../../../images/dark/car.png" />
+      <text>10m | 你已在附近</text>
+    </view>
+    <button class="button">
+      <image class="image" src="../../../images/dark/locationBtn.png"/>
+      <text>去这里</text>
+    </button>
+  </view>
 </view>

@@ -149,7 +149,7 @@ module.exports = Behavior({
       const info = this.data.videoList.filter(n => n.id === id)[0]
       console.log(info)
       const data = {
-        detail: info
+        detail: info || {}
       };
       this.setData(data);
     }
