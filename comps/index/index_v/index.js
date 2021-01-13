@@ -74,7 +74,8 @@ Component({
       that.setData({
         address: '加载中',
         locationPic: '../../../images/dark/locationLoading.png',
-        isLoading: true
+        isLoading: true,
+        scrollLeft: 0
       })
       wx.getLocation({
         type: 'wgs84',
@@ -154,10 +155,11 @@ Component({
           item.priceObj = item.product.filter(n => n.oilNumber == this.data.currentOil)[0]
           let shengPrice = ((200 / item.priceObj.gunPrice) * (item.priceObj.gunPrice - item.priceObj.userPrice)).toFixed(2)
           item.subLabel = `加油200省${shengPrice}`
+          console.log(item.address.split('市'))
           list.push({
             id: item.id,
             mainTitle: item.name,
-            subTitle: item.address,
+            subTitle: item.address.split('市')[item.address.split('市').length - 1],
             mainLabel: item.priceObj.userPrice,
             subLabel: [item.subLabel],
             image: item.picture.small,

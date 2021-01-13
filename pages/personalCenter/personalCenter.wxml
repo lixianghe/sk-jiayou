@@ -15,7 +15,7 @@
 <view class="page {{colorStyle}}" style="background:{{backgroundColor}}">
   <view class="card-nav">
     <view class="location">
-        <text class="address" bindtap="loadLocation">已浏览{{videoList.length}}家加油站</text>
+        <text class="address">已浏览{{videoList.length}}家加油站</text>
     </view>
   </view>
   
@@ -23,7 +23,7 @@
   <scroll-view class="scroll-view-bar" scroll-x="true" bindscrolltolower="scrollRight" scroll-left="{{scrollLeft}}" lower-threshold="{{lowerThreshold}}">
     <view class="pick-card" wx:for="{{videoList}}" wx:for-item="item" wx:for-index="idx" wx:key="id" catchtap="navDetail" data-itemId="{{item.id}}">
       <!-- 竖图信息最多态 -->
-      <view class="vpick-item" data-index="{{index}}" bindtap="linkInfo">
+      <view class="vpick-item" data-index="{{idx}}" bindtap="linkInfo" data-focusindex="2">
         <view class="vpick-titL">
           <view class="pick-title">{{item.mainTitle}}</view>
           <view class="vindex-tag">
@@ -45,8 +45,8 @@
           <view class="pick-address" wx:for="{{ m2.formatVal(item.subTitle) }}" wx:for-item="curr" wx:key="index">
             {{ curr }}
           </view>
-          <view class="navToMap" catchtap="navToMap" data-lat="{{item.lat}}" data-lng="{{item.lng}}" data-address="{{item.address}}">
-            <image class="vpick-navTo" src="{{button[0].icon}}" catchtap="navToMap"></image>
+          <view class="navToMap" catchtap="navToMap" data-focusindex="3" data-lat="{{item.lat}}" data-lng="{{item.lng}}" data-address="{{item.address}}">
+            <image class="vpick-navTo" src="{{button[0].icon}}"></image>
             <text style="vertical-align: text-bottom;">{{item.distance}}</text>
           </view>
         </view>

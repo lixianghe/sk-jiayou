@@ -49,7 +49,10 @@ Page({
       icon: 'none'
     })
   },
-  linkInfo() {
+  linkInfo(e) {
+    let index = e.currentTarget.dataset.index
+    let oil = this.data.videoList[index]
+    wx.setStorageSync('oilItem', oil)
     wx.navigateTo({
       url: '/pages/detail/index',
     })

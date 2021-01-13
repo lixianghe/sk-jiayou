@@ -35,19 +35,19 @@ page {
 }
 
 view[focus-select=true]{
-  box-shadow: inset 0px 0px 0px 4px#508dff;
+  box-shadow: inset 0px 0px 0px 4px#00b26a;
 }
 
 image[focus-select=true]{
-  box-shadow: inset 4px 4px #508dff, inset -4px -4px #508dff;
+  box-shadow: inset 4px 4px #00b26a, inset -4px -4px#00b26a;
 }
 
 button[focus-select=true]{
-  box-shadow: inset 4px 4px #508dff, inset -4px -4px #508dff;
+  box-shadow: inset 4px 4px #00b26a, inset -4px -4px#00b26a;
 }
 text[focus-select=true]{
-  box-shadow: inset 0px 0px 0px 4px#508dff;
+  box-shadow: inset 0px 0px 0px 4px#00b26a;
 }
-.navToMap[focus-select=true]{
-  box-shadow: inset 0px 0px 0px 4px#e6222b;
-}
+/* .navToMap[focus-select=true]{
+  box-shadow: inset 0px 0px 0px 4px#777879;
+} */

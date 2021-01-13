@@ -10,8 +10,9 @@
   height: 100vh;
   /* width: 131vh; */
   flex: 1.96;
-  background-image: linear-gradient(to right , #1d1d1d, #2b2b2b);
+  background: rgba(255,255,255, 0.02);
   position: relative;
+  /* box-shadow: 6px 6px 6px rgba(255,255,255, 0.1); */
 }
 .leftCard .payCard {
   height: 74vh;
@@ -20,16 +21,16 @@
   justify-content: center;
 }
 .leftCard .payCard .payCardImage {
-  width: 110vh;
-  height: 52.5vh;
+  width: 113vh;
+  height: 47.5vh;
   position: relative;
 }
 .leftCard .payCard .payCardImage .codeUrl {
   position: absolute;
-  top: 6.5vh;
-  width: 39vh;
-  height: 39vh;
-  left: 5vh;
+  top: 5vh;
+  width: 37vh;
+  height: 37vh;
+  left: 4vh;
 }
 .leftCard .payProcess {
   display: flex;
@@ -42,8 +43,8 @@
 .leftCard .price{
   position: absolute;
   color: #fff;
-  right: 5vh;
-  top: 8.5vh;
+  right: 4.5vh;
+  top: 9.2vh;
 }
 
 .leftCard .price .priceDetail .text {
@@ -62,17 +63,15 @@
 }
 .leftCard .price .discount {
   display: flex;
-  font-size: 5.14vh;
-  width: 55.3vh;
+  font-size: 4.92vh;
+  width: 61.5vh;
   height: 10vh;
   border: 0.5vh solid #fff;
   box-sizing: border-box;
   border-radius: 2vh;
-  margin-top: 4.5vh;
+  margin-top: 3.2vh;
 }
 .leftCard .price .discount .left {
-  background: #fff;
-  color: #ff5642;
   width: 19.1vh;
   display: flex;
   justify-content: center;
@@ -87,7 +86,7 @@
 .leftCard .price .discount .image {
   width: 4.3vh;
   height: 4.9vh;
-  margin-right: 1vh;
+  margin-left: 1vh;
 }
 .rightCard {
   padding: 12.3vh 3.5vw 12.3vh 3.3vw;
@@ -107,6 +106,12 @@
   border-radius: 1vh;
   margin-right: 4vh;
   flex-shrink: 0;
+}
+.rightCard .oilName .text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
 }
 .rightCard .oilLocation {
   color: #9a9a9a;

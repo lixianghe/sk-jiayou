@@ -68,6 +68,10 @@
   white-space: normal;
   /* padding: 3vh 5vh; */
   /* height: 20vh; */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
 }
 .pick-address {
   padding: 1.5vh 5vh;
@@ -133,7 +137,7 @@
 }
 .vpick-titL .pick-title {
   /* padding: 0 2vh 0 0; */
-  height: 14.43vh;
+  height: 18.43vh;
   line-height: 9.43vh;
 }
 .vpick-tag {
@@ -181,7 +185,7 @@
   color: #ff6100;
   height: 9.04vh;
   line-height: 9.04vh;
-  margin-top: 4.43vh;
+  margin-top: 0.43vh;
   /* display: inline-block; */
 }
 .pick-subTitle {

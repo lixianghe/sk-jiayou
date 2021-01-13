@@ -12,11 +12,14 @@
             <text class="text oldPrice">{{oilItem.gunPrice}}/L</text>
           </view>
           <view class="discount">
-            <view class="left">
-              <image class="image" src="../../../images/dark/xia.png"/>
+            <!-- <view class="left">
+              
               <text>立减</text>
+            </view> -->
+            <view class="right">
+              加200比油站价省{{oilItem.shengPrice}}
+              <image class="image" src="../../../images/dark/xia2.png"/>
             </view>
-            <view class="right">加200省{{oilItem.shengPrice}}</view>
           </view>
         </view>
       </image>
@@ -29,11 +32,11 @@
   <view class="rightCard">
     <view class="oilName">
       <image class="image" src="{{info.picture.small}}" />
-      <text>{{info.name}}</text>
+      <text class="text">{{info.name}}</text>
     </view>
     <view class="oilLocation">
       <image class="image" src="../../../images/dark/invalid_name_1.png" />
-      <text>{{info.address}}</text>
+      <text>{{oilItem.subTitle}}</text>
     </view>
     <view class="oilLocation">
       <image class="image" src="../../../images/dark/car.png" />
