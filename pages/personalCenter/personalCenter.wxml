@@ -12,26 +12,30 @@
 	};
 </wxs>
 <!-- 页面容器 -->
-<view class="page {{colorStyle}}" wx:if="{{videoList.length>0}}" style="background:{{backgroundColor}}">
+<view class="page {{colorStyle}}" style="background:{{backgroundColor}}">
   <view class="card-nav">
     <view class="location">
-        <text class="address" bindtap="loadLocation">已收藏5家加油站</text>
+        <text class="address" bindtap="loadLocation">已浏览{{videoList.length}}家加油站</text>
     </view>
   </view>
+  
   <!-- 页面盒子 -->
-  <scroll-view class="scroll-view-bar" scroll-x="true" bindscrolltolower="scrollRight">
+  <scroll-view class="scroll-view-bar" scroll-x="true" bindscrolltolower="scrollRight" scroll-left="{{scrollLeft}}" lower-threshold="{{lowerThreshold}}">
     <view class="pick-card" wx:for="{{videoList}}" wx:for-item="item" wx:for-index="idx" wx:key="id" catchtap="navDetail" data-itemId="{{item.id}}">
       <!-- 竖图信息最多态 -->
-      <view class="vpick-item" bindtap="linkInfo">
+      <view class="vpick-item" data-index="{{index}}" bindtap="linkInfo">
         <view class="vpick-titL">
           <view class="pick-title">{{item.mainTitle}}</view>
           <view class="vindex-tag">
-            <image src="../../../images/dark/invalid_name.png" class="invalidName"></image>
+            <image src="../../images/dark/invalid_name.png" class="invalidName"></image>
             <text class="vindexTagmain">{{item.mainLabel}}</text>
-            <text class="cancleText">5.09</text>
+            <text class="cancleText">{{item.gunPrice}}</text>
           </view>
           <view class="tag-group">
-            <text class="vpick-tag" wx:for="{{item.subLabel.length > 2 ? 2: item.subLabel.length}}" wx:for-item="cell" wx:key="index">{{item.subLabel[cell]}}</text>
+            <view class="vpick-tag" wx:for="{{item.subLabel.length > 2 ? 2: item.subLabel.length}}" wx:for-item="cell" wx:key="index">
+              <image class="image" src="../../images/dark/xia.png"/>
+              <text>{{item.subLabel[cell]}}</text>
+            </view>
           </view>
         </view>
         <view class="vpick-img {{!item.subTitle ? 'vpick-cardBig' : ''}}">
@@ -41,9 +45,9 @@
           <view class="pick-address" wx:for="{{ m2.formatVal(item.subTitle) }}" wx:for-item="curr" wx:key="index">
             {{ curr }}
           </view>
-          <view class="navToMap" catchtap="navToMap">
+          <view class="navToMap" catchtap="navToMap" data-lat="{{item.lat}}" data-lng="{{item.lng}}" data-address="{{item.address}}">
             <image class="vpick-navTo" src="{{button[0].icon}}" catchtap="navToMap"></image>
-            <text style="vertical-align: text-bottom;">5.5km</text>
+            <text style="vertical-align: text-bottom;">{{item.distance}}</text>
           </view>
         </view>
       </view>
@@ -51,5 +55,5 @@
   </scroll-view>
 
 
-  <Nodata code="{{retcode}}" bindrefresh="reloadData"></Nodata>
+  <Nodata code="{{retcode}}" bindtoHome="toHome"></Nodata>
 </view>

@@ -142,11 +142,17 @@
   background-color: rgba(255,76,59, 0.3);
   display: inline-block;
   height: 5.8vh;
-  padding: 0 2.73vh;
+  padding: 0 2vh;
   line-height: 5.8vh;
   margin-right: 2.5vh;
   font-size: 3.69vh;
   color: #ff4c3b
+}
+.vpick-tag .image {
+  width: 2.15vh;
+  height: 2.65vh;
+  vertical-align: middle;
+  margin-right: 1.5vh;
 }
 .invalidName {
   width: 3vh;
@@ -197,7 +203,7 @@
   justify-content: center;
 }
 .navToMap {
-  display: inline-block;
+  display: flex;
   width: 26.45vh;
   border-radius: 4vh;
   height: 8.5vh;
@@ -206,6 +212,8 @@
   vertical-align: super;
   line-height: 9vh;
   margin-left: 6.5vh;
+  align-items: center;
+  justify-content: center;
 }
 .btn-group {
   display: flex;
@@ -218,10 +226,9 @@
 }
 .vpick-navTo {
   display: inline-block;
-  width: 6.81vh;
-  height: 6.81vh;
-  vertical-align: initial;
-  margin-left: 2vh;
+  width: 3.07vh;
+  height: 3.84vh;
+  margin-right: 1.5vh;
 }
 .but-tit {
   font-size: 4.89vh;
@@ -275,7 +282,7 @@
   50% {transform: rotate(180deg);}
   100% {transform: rotate(360deg);}
 }
-.card-nav .location text {
+.card-nav .location .text {
   float: left;
   font-size: 4.3vh;
   color: rgba(255,255,255, 0.7);
@@ -285,6 +292,7 @@
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
+  
 }
 .card-nav .oil {
   height: 11vh;
@@ -299,7 +307,7 @@
   align-items: center;
   margin-left: 2vh;
 }
-.card-nav .oil image, .card-nav .brand image {
+.card-nav .oil .image, .card-nav .brand .image {
   width: 6.3vh;
   height: 6.3vh;
 }
@@ -337,10 +345,10 @@
   color: #fff;
   padding: 8.6vh 25.5vh 0 8vh;
   font-size: 5.5vh;
-  z-index: 6;
+  z-index: 11;
   transform: translateX(-160vh);
 }
-.oilCard image {
+.oilCard .image {
   position: absolute;
   width: 20.6vh;
   height: 11vh;
@@ -351,7 +359,7 @@
 /* .oilCard .oiltypes {
   
 } */
-.oilCard .oiltypes view {
+.oilCard .oiltypes .item {
   width: 36.9vh;
   height: 15.35vh;
   background: rgba(255,255,255, 0.07);
@@ -375,7 +383,7 @@
   height: 100vh;
   width: 100vw;
   background: rgba(0,0,0, 0.8);
-  z-index: 5;
+  z-index: 10;
   left: 0;
   top: 0;
 }
@@ -384,7 +392,8 @@
   border: 1px solid #327aff;
 }
 .swiper{
-  width: 22vh;
+  width: 25vh;
   height: 5vh;
   text-align: right;
+  margin-left: 2vh;
 }

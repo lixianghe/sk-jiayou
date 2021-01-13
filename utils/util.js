@@ -29,7 +29,21 @@ function throttle (fn, gapTime) {
     }
   };
 }
+
+// 距离米过滤为KM的函数
+function formatMeter(meter, fixNum) {
+  let num
+  if (meter / 1000 > 1) {
+    num = (meter / 1000).toFixed(fixNum)
+    return `${num}KM`
+  } else {
+    num = Number(meter).toFixed(fixNum)
+    return `${num}M`
+  }
+}
+
 module.exports = {
   formatTime: formatTime,
-  throttle: throttle
+  throttle: throttle,
+  formatMeter: formatMeter
 };

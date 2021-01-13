@@ -1,23 +1,23 @@
 <view class="container {{colorStyle}} noData" wx:if="{{code=='1'}}" style="background-color:{{backgroundColor}}">
   <image class="icon" src="{{'/images/'+colorStyle+'/locationFail.png'}}"></image>
-  <view class="text">为浏览过加油站</view>
-  <button class="btn" data-key="{{key}}" catchtap="btnClick">查看周边的加油站</button>
+  <view class="text">未浏览过加油站</view>
+  <button class="btn" data-key="{{key}}" catchtap="viewOil">查看周边的加油站</button>
 </view>
 
 <view class="container {{colorStyle}}" wx:if="{{code=='2'}}" style="background-color:{{backgroundColor}}">
   <image class="icon" src="{{'/images/'+colorStyle+'/wifi.png'}}"></image>
   <view class="text">网络不好\n请稍后重试</view>
-  <button class="btn" data-key="{{key}}" catchtap="btnClick">重新加载</button>
+  <button class="btn" data-key="{{key}}" catchtap="reload">重新加载</button>
 </view>
 
 <view class="container {{colorStyle}}" wx:if="{{code=='3'}}" style="background-color:{{backgroundColor}}">
   <image class="icon" src="{{'/images/'+colorStyle+'/locationFail.png'}}"></image>
   <view class="text">无法获取位置信息，请重试</view>
-  <button class="btn" data-key="{{key}}" catchtap="btnClick">重新加载</button>
+  <button class="btn" data-key="{{key}}" catchtap="reload">重新加载</button>
 </view>
 
 <view class="container {{colorStyle}}" wx:if="{{code=='4'}}" style="background-color:{{backgroundColor}}">
-  <image class="icon" src="{{'/images/'+colorStyle+'/server.png'}}"></image>
-  <view class="text">请求失败\n请稍后重试</view>
-  <button class="btn" data-key="{{key}}" catchtap="btnClick">重新加载</button>
+  <image class="icon" src="{{'/images/'+colorStyle+'/locationFail.png'}}"></image>
+  <view class="text">未找到加油站</view>
+  <!-- <button class="btn" data-key="{{key}}" catchtap="btnClick">查看周边的加油站</button> -->
 </view>

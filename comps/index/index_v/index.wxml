@@ -3,28 +3,35 @@
 		// 判断参数是数组，instanceof 不可用 暂时先这么判断
     return typeof val === 'object' ? val : [val]
   }
-	var formatNum = function (val, num) {
-		return val.substring(0, num)
+	var formatBrand = function (val) {
+		var brand = {
+      '0':'全部品牌',
+      '1':'中石油',
+      '2':'中石化',
+      '3':'壳牌',
+      '4':'其他'
+    }
+    return brand[val]
 	}
   module.exports = {
 		formatVal: formatVal, 
-		formatNum: formatNum
+		formatBrand: formatBrand
 	};
 </wxs>
 <!-- 页面容器 -->
-<view class="page {{colorStyle}}" wx:if="{{videoList.length>0}}" style="background:{{backgroundColor}}">
+<view class="page {{colorStyle}}" style="background:{{backgroundColor}}">
   <view class="card-nav">
     <view class="location">
         <image class="locationPic loading" src="{{locationPic}}" wx:if="{{isLoading}}"></image>
         <image class="locationPic" src="{{locationPic}}" wx:else></image>
-        <text class="address" bindtap="loadLocation">{{address}}</text>
-      <view class="oil" bindtap="showOil">
-        <text>92#</text>
-        <image src="../../../images/dark/icon.png"></image>
+        <text class="address text" bindtap="loadLocation" data-focusindex="2">{{address}}</text>
+      <view class="oil" bindtap="showOil" data-focusindex="2">
+        <text class="text">{{currentOil}}#</text>
+        <image class="image" src="../../../images/dark/icon.png"></image>
       </view>
-      <view class="brand" bindtap="showBrand">
-        <text>全部品牌</text>
-        <image src="../../../images/dark/icon.png"></image>
+      <view class="brand" bindtap="showBrand" data-focusindex="2">
+        <text class="text">{{m2.formatBrand(currentBrand)}}</text>
+        <image class="image" src="../../../images/dark/icon.png"></image>
       </view>
     </view>
     <view></view>
@@ -33,8 +40,8 @@
       <swiper current="{{swiperCurrent}}" interval = '3000' autoplay = 'true' circular="true" vertical="true" class="swiper">
        <block data-item="{{item}}" wx:for="{{swiperArr}}" wx:key="id">
        <swiper-item  class="swiper-item">
-         {{item.oil}}
-         <text class="num">￥{{item.num}}</text>
+         {{item.oilName}}#
+         <text class="num">￥{{item.officialPrice}}</text>
        </swiper-item>
        </block>
       </swiper>
@@ -45,19 +52,22 @@
 
   </view>
   <!-- 页面盒子 -->
-  <scroll-view class="scroll-view-bar" scroll-x="true" bindscrolltolower="scrollRight">
-    <view class="pick-card" wx:for="{{videoList}}" wx:for-item="item" wx:for-index="idx" wx:key="id" catchtap="navDetail" data-itemId="{{item.id}}">
+  <scroll-view class="scroll-view-bar" scroll-x="true" bindscrolltolower="scrollRight" scroll-left="{{scrollLeft}}" lower-threshold="{{lowerThreshold}}">
+    <view class="pick-card" wx:for="{{videoList}}" wx:for-item="item" wx:for-index="idx" wx:key="id" data-itemId="{{item.id}}">
       <!-- 竖图信息最多态 -->
-      <view class="vpick-item" bindtap="linkInfo">
+      <view class="vpick-item" data-index="{{index}}" bindtap="linkInfo" data-focusindex="3">
         <view class="vpick-titL">
           <view class="pick-title">{{item.mainTitle}}</view>
           <view class="vindex-tag">
             <image src="../../../images/dark/invalid_name.png" class="invalidName"></image>
             <text class="vindexTagmain">{{item.mainLabel}}</text>
-            <text class="cancleText">5.09</text>
+            <text class="cancleText">{{item.gunPrice}}</text>
           </view>
           <view class="tag-group">
-            <text class="vpick-tag" wx:for="{{item.subLabel.length > 2 ? 2: item.subLabel.length}}" wx:for-item="cell" wx:key="index">{{item.subLabel[cell]}}</text>
+            <view class="vpick-tag" wx:for="{{item.subLabel.length > 2 ? 2: item.subLabel.length}}" wx:for-item="cell" wx:key="index">
+              <image class="image" src="../../../images/dark/xia.png"/>
+              <text>{{item.subLabel[cell]}}</text>
+            </view>
           </view>
         </view>
         <view class="vpick-img {{!item.subTitle ? 'vpick-cardBig' : ''}}">
@@ -67,9 +77,9 @@
           <view class="pick-address" wx:for="{{ m2.formatVal(item.subTitle) }}" wx:for-item="curr" wx:key="index">
             {{ curr }}
           </view>
-          <view class="navToMap" catchtap="navToMap" data-lat="{{item.lat}}" data-lng="{{item.lng}}" data-address="{{item.address}}">
-            <image class="vpick-navTo" src="{{button[0].icon}}" catchtap="navToMap"></image>
-            <text style="vertical-align: text-bottom;">5.5km</text>
+          <view class="navToMap" catchtap="navToMap" data-focusindex="4" data-lat="{{item.lat}}" data-lng="{{item.lng}}" data-address="{{item.address}}">
+            <image class="vpick-navTo" src="{{button[0].icon}}"></image>
+            <text style="vertical-align: text-bottom;">{{item.distance}}</text>
           </view>
         </view>
       </view>
@@ -85,11 +95,11 @@
 <!-- 油号的弹框 -->
 <view class="oilCard" animation="{{oilAnimation}}">
   
-  <image bindtap="closeOil" src="../../../images/dark/closeList.png" />
+  <image class="image" bindtap="closeOil" src="../../../images/dark/closeList.png" />
   <view class="cardContent">
     <text class="oilTitle">汽油</text>
     <view class="oiltypes">
-      <view bindtap="selectOil" data-val="{{item.value}}" wx:key="index" class="{{currentOil == item.value ? 'active' : ''}}" wx:for="{{oilList}}">{{item.label}}</view>
+      <view bindtap="selectOil" data-val="{{item.value}}" wx:key="index" class="{{currentOil == item.value ? 'active item' : 'item'}}" wx:for="{{oilList}}">{{item.label}}</view>
     </view>
   </view>
 </view>
@@ -97,11 +107,11 @@
 <!-- 品牌的弹框 -->
 <view class="oilCard brandCard" animation="{{brandAnimation}}">
   
-  <image bindtap="closeBrand" src="../../../images/dark/closeList.png" />
+  <image class="image" bindtap="closeBrand" src="../../../images/dark/closeList.png" />
   <view class="cardContent">
     <text class="oilTitle">请选择品牌</text>
     <view class="oiltypes">
-      <view bindtap="selectBrand" data-val="{{item.value}}" wx:key="index" class="{{currentBrand == item.value ? 'active' : ''}}" wx:for="{{brandList}}">{{item.label}}</view>
+      <view bindtap="selectBrand" data-val="{{item.value}}" wx:key="index" class="{{currentBrand == item.value ? 'active item' : 'item'}}" wx:for="{{brandList}}">{{item.label}}</view>
     </view>
   </view>
 </view>

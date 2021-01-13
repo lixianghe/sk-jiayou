@@ -2,43 +2,44 @@
 <view class="page" style="background:{{backgroundColor}}">
   <view class="leftCard">
     <view class="payCard">
-      <image class="payCardImage" src="../../../images/payCard.png" >
+      <image class="payCardImage" src="../../../images/dark/payCard.png" >
+        <image class="codeUrl" bindload="imgLoad" src="{{codeUrl}}" />
         <view class="price">
           <view class="priceDetail">
             <text class="text">￥</text>
-            <text class="text">4.92</text>
+            <text class="text">{{oilItem.mainLabel}}</text>
             <text class="text">/L</text>
-            <text class="text oldPrice">5.09/L</text>
+            <text class="text oldPrice">{{oilItem.gunPrice}}/L</text>
           </view>
           <view class="discount">
             <view class="left">
               <image class="image" src="../../../images/dark/xia.png"/>
               <text>立减</text>
             </view>
-            <view class="right">加200省26</view>
+            <view class="right">加200省{{oilItem.shengPrice}}</view>
           </view>
         </view>
       </image>
       
     </view>
     <view class="payProcess">
-      <image src="../../../images/payProcess.png" />
+      <image class="image" src="../../../images/dark/payProcess.png" />
     </view>
   </view>
   <view class="rightCard">
     <view class="oilName">
-      <image class="image" src="../../../images/dark/oil.png" />
-      <text>北京海淀清河加油站</text>
+      <image class="image" src="{{info.picture.small}}" />
+      <text>{{info.name}}</text>
     </view>
     <view class="oilLocation">
       <image class="image" src="../../../images/dark/invalid_name_1.png" />
-      <text>北京市海淀区圆明园西路2号</text>
+      <text>{{info.address}}</text>
     </view>
     <view class="oilLocation">
       <image class="image" src="../../../images/dark/car.png" />
-      <text>10m | 你已在附近</text>
+      <text>{{oilItem.distance}}</text>
     </view>
-    <button class="button">
+    <button class="button" catchtap="navToMap" data-lat="{{item.lat}}" data-lng="{{item.lng}}" data-address="{{item.address}}">
       <image class="image" src="../../../images/dark/locationBtn.png"/>
       <text>去这里</text>
     </button>

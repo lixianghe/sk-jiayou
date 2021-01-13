@@ -1,6 +1,6 @@
 
 import pageConfig from '../../../utils/pageOtpions/pageOtpions'
-import { throttle } from '../../../utils/util'
+import { throttle, formatMeter } from '../../../utils/util'
 const config = pageConfig.index
 const app = getApp()
 let wxMap = require('../../../utils/qqmap-wx-jssdk');
@@ -9,6 +9,8 @@ var map = new wxMap({
 }); 
 
 import { getOil } from '../../../utils/httpOpt/api'
+let pageNo = 1
+let params = {}
 
 Component({
   // behaviors: [myBehavior],
@@ -56,14 +58,15 @@ Component({
       {value: '4', label: '其他'}
     ],
     swiperArr: [
-      {oil: '90#', num: '6'},
-      {oil: '92#', num: '7'},
-      {oil: '95#', num: '7.5'},
-      {oil: '98#', num: '8.2'}
     ],
     currentOil: '92',
-    currentBrand: '0'
+    currentBrand: '0',
+    latitude: null,
+    longitude: null,
+    lowerThreshold: 100,
+    scrollLeft: 0
   },
+  params: {},
   methods: {
     // 获取地理位置
     loadLocation() {
@@ -74,17 +77,27 @@ Component({
         isLoading: true
       })
       wx.getLocation({
-        type: 'gcj02',
+        type: 'wgs84',
         success(res) {
           // app.log("----获取定位初始化数据成功-----",res)
           const latitude = res.latitude;
           const longitude = res.longitude;     
           wx.setStorageSync('lat', latitude); 
           wx.setStorageSync('lng', longitude);  
+          // 获取地理位置
           that.getAddress(latitude, longitude)  
+          // 获取加油站列表
+          params = {
+            pageNo: 1,
+            pageSize: 10,
+            latitude: latitude,
+            longitude: longitude,
+            type: that.data.currentBrand,
+            oilName: that.data.currentOil
+          }
+          that.getOilList(params)
         },
         fail(res) {
-          
           const latitude = '39.908823';
           const longitude = '116.397470';
           wx.setStorageSync('lat', latitude); 
@@ -94,35 +107,24 @@ Component({
     },
     getAddress(latitude, longitude) {
       let that = this
-      console.log(latitude, longitude)
       map.reverseGeocoder({
         location: {
           latitude: latitude,
           longitude: longitude
         },
         success: function(res) {//成功后的回调
-          console.log(res);
           let result = res.result;
+          console.log(result)
           let address = `${result.formatted_addresses.recommend}`
-          setTimeout(() => {
-            that.setData({
-              address,
-              locationPic: '../../../images/dark/invalid_name_1.png',
-              isLoading: false
-            })
-          }, 1000)
-          let params = {
-            pageNo: 1,
-            pageSize: 10,
-            latitude: String(latitude),
-            longitude: String(longitude),
-            type: 0,
-            oilName: '92'
-          }
-          that.getOilList(params)
+          that.setData({
+            address,
+            locationPic: '../../../images/dark/invalid_name_1.png',
+            isLoading: false,
+            latitude: latitude,
+            longitude: longitude
+          })
         },
         fail: function(error) {
-          console.error(error);
           that.setData({
             retcode: 3,
             address: '重新加载',
@@ -132,21 +134,57 @@ Component({
         }
       })
     },
-    getOilList(params){
+    getOilList(params, scrollLoad = false){
+      if (!scrollLoad) {
+        wx.showLoading({
+          title: '加载中...'
+        })
+      }
       getOil(params).then(res => {
-        console.log(res)
         let list = []
+        // 如果没有返回列表或返回为空的情况
+        if (!res.data || !res.data.oilInfoList || !res.data.oilInfoList.length) {
+          this.setData({
+            retcode: 4
+          })
+          wx.hideLoading()
+          return
+        }
         res.data.oilInfoList.map(item => {
+          item.priceObj = item.product.filter(n => n.oilNumber == this.data.currentOil)[0]
+          let shengPrice = ((200 / item.priceObj.gunPrice) * (item.priceObj.gunPrice - item.priceObj.userPrice)).toFixed(2)
+          item.subLabel = `加油200省${shengPrice}`
           list.push({
             id: item.id,
             mainTitle: item.name,
             subTitle: item.address,
-            // mainLabel: item.
+            mainLabel: item.priceObj.userPrice,
+            subLabel: [item.subLabel],
+            image: item.picture.small,
+            lat: item.location.lat,
+            lng: item.location.lng,
+            address: item.address,
+            gunPrice: item.priceObj.gunPrice,
+            shengPrice: shengPrice,
+            distance: formatMeter(item.distance, 1)
           })
         })
         this.setData({
-          videoList: list,
-          total: res.data.count
+          videoList: !scrollLoad ? list : this.data.videoList.concat(list),
+          total: res.data.count,
+          retcode: 0,
+          swiperArr: res.gasolineList
+        }, () => {
+          if (res.data.count <= 10) this.setData({lowerThreshold: 100})
+        })
+        wx.hideLoading()
+      })
+      .catch(error => {
+        wx.hideLoading()
+        this.setData({
+          videoList: [],
+          total: 0,
+          retcode: 4
         })
       })
     },
@@ -205,26 +243,75 @@ Component({
         showMaskBrand: false
       })
     },
-    linkInfo() {
+    linkInfo(e) {
+      console.log(e.target.dataset.index)
+      let index = e.target.dataset.index
+      let oil = this.data.videoList[index]
+      wx.setStorageSync('oilItem', oil)
+      // 把历史记录存在缓存
+      let oilHistoryList = wx.getStorageSync('oilHistoryList') || []
+      // 判断是否已经存在oil
+      for (var i = 0; i < oilHistoryList.length; i++) {
+        if (oilHistoryList[i].id === oil.id) {
+          oilHistoryList.splice(i, 1)
+          oilHistoryList.unshift(oil)
+          wx.setStorageSync('oilHistoryList', oilHistoryList)
+          wx.navigateTo({
+            url: '/pages/detail/index',
+          })
+          return;
+        }
+      }
+      console.log(oil)
+      if (oil.id) oilHistoryList.unshift(oil)
+      wx.setStorageSync('oilHistoryList', oilHistoryList)
       wx.navigateTo({
         url: '/pages/detail/index',
       })
     },
-    // 初始化swiper
-    initSwiper() {
-      var mySwiper = new Swiper ('.swiper-container', {
-        direction: 'vertical', // 垂直切换选项
-        loop: true, // 循环模式选项
-      })        
-    },
     selectOil(e) {
-      this.setData({currentOil: e.currentTarget.dataset.val})
+      pageNo = 1
+      this.setData({
+        currentOil: e.currentTarget.dataset.val,
+        scrollLeft: 0,
+        lowerThreshold: 350
+      })
+      params.oilName = e.currentTarget.dataset.val 
+      params.pageNo = 1
+      this.closeOil()
+      this.getOilList(params)
     },
     selectBrand(e) {
-      this.setData({currentBrand: e.currentTarget.dataset.val})
-    }
+      pageNo = 1
+      this.setData({
+        currentBrand: e.currentTarget.dataset.val,
+        scrollLeft: 0,
+        lowerThreshold: 350
+      })
+      params.type = e.currentTarget.dataset.val 
+      params.pageNo = 1
+      this.closeBrand()
+      this.getOilList(params)
+    },
+    scrollRight(e) {
+      let maxPageNo = Math.ceil(this.data.total / 10)
+      console.log(maxPageNo, pageNo)
+      if (pageNo == maxPageNo) this.setData({lowerThreshold: 50})
+      pageNo++
+      if (pageNo > maxPageNo) {
+        wx.showToast({
+          title: '已经到底了！',
+          icon: 'none'
+        })
+        return
+      } 
+      params.pageNo = pageNo
+      this.getOilList(params, true)
+    },
   },
+
   attached: function () {
+    pageNo = 1
     app.setTheme(this);
     this.modalAnimation = wx.createAnimation({
       duration: 300,

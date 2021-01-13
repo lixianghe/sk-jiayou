@@ -33,3 +33,21 @@ page {
   height: 0;
   color: transparent;
 }
+
+view[focus-select=true]{
+  box-shadow: inset 0px 0px 0px 4px#508dff;
+}
+
+image[focus-select=true]{
+  box-shadow: inset 4px 4px #508dff, inset -4px -4px #508dff;
+}
+
+button[focus-select=true]{
+  box-shadow: inset 4px 4px #508dff, inset -4px -4px #508dff;
+}
+text[focus-select=true]{
+  box-shadow: inset 0px 0px 0px 4px#508dff;
+}
+.navToMap[focus-select=true]{
+  box-shadow: inset 0px 0px 0px 4px#e6222b;
+}

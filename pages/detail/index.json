@@ -1,10 +1,9 @@
 {
-  "navigationBarTitleText": "影片详情",
+  "navigationBarTitleText": "详情",
   "navigationBarBackgroundColor": "#333333",
   "navigationBarTextStyle": "white",
   "component": true,
   "usingComponents": {
-    "Detail-one": "../../comps/detail/detail_one/index",
-    "Detail-two": "../../comps/detail/detail_two/index"
+    "Detail-one": "../../comps/detail/detail_one/index"
   }
 }

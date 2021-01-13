@@ -13,10 +13,13 @@ Component({
     attached: function () {
       app.setTheme(this);
     },
-    btnClick(e) {
+    viewOil() {
+      this.triggerEvent('toHome');
+    },
+    reload(e) {
       app.log("----点击了重新加载------"+this.properties.code)
       this.triggerEvent('refresh');
-    },
+    }
   },
   // 以下是旧式的定义方式，可以保持对 <2.2.3 版本基础库的兼容
   attached: function () {

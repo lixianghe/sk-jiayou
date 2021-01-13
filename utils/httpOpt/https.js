@@ -1,6 +1,6 @@
-const base = 'https://devgw.tai.qq.com'
+const base = 'https://gw.tai.qq.com'
 // const base = 'https://tapi.kaishustory.com'
-const appkey = 'AABBBCCD'
+const appkey = 'AGLU6H05'
 import md from '../md5'
 /**
  * 封封微信的的request
@@ -10,7 +10,6 @@ export function request(url, data = {}, method = 'GET') {
   return new Promise(function (resolve, reject) {
     data.appKey = appkey
     data.seqId = get_id(8)
-    console.log(data)
     let sign = sort_ASCII(data)
     let _data = Object.assign({}, data)
     _data.sign = sign
@@ -69,7 +68,6 @@ function sort_ASCII(obj){
   for(let key in sortObj) {
     strObj += `${key}=${sortObj[key]}&`
   }
-  console.log(strObj.substr(0, strObj.length - 1))
   strObj = md(strObj.substr(0, strObj.length - 1))
   return strObj;
 }

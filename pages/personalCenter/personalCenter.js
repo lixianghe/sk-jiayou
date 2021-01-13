@@ -1,26 +1,12 @@
-
 import pageConfig from '../../utils/pageOtpions/pageOtpions'
+import {
+  throttle
+} from '../../utils/util'
 const config = pageConfig.index
 const app = getApp()
-let wxMap = require('../../utils/qqmap-wx-jssdk');
-var map = new wxMap({
-  key: 'VFWBZ-OIK3W-VAIRD-R7YAZ-T3UPV-NNFX5' 
-}); 
 
-Component({
-  // behaviors: [myBehavior],
-  modalAnimation: null,
-  animation2: null,
-  properties: {
-    detail: {
-      type: Object,
-      default: {}
-    },
-    btns: {
-      type: Array,
-      default: []
-    }
-  },
+
+Page({
   data: {
     colorStyle: app.globalData.theme.colorStyle,
     backgroundColor: app.globalData.theme.backgroundColor,
@@ -36,37 +22,67 @@ Component({
     showMaskBrand: false,
     address: '',
     locationLoading: false,
-    locationPic: '../../../images/dark/invalid_name_1.png',
+    locationPic: '../../images/dark/invalid_name_1.png',
     loadAnimation: null,
     isLoading: false
   },
-  methods: {
-    getList() {
-      this.setData({retcode: 1})
-    },
-    refresh() {
-
-    },
-    scrollRight() {
-      wx.showToast({
-        title: '已经到底了',
-        icon: 'none'
+  getList() {
+    let list = wx.getStorageSync('oilHistoryList') || []
+    if (list.length) {
+      this.setData({
+        videoList: list.slice(0, 31),
+        retcode: 0
       })
-    },
-    linkInfo() {
-      wx.navigateTo({
-        url: '/pages/detail/index.js',
+    } else {
+      this.setData({
+        retcode: 1
       })
     }
+
   },
-  attached: function () {
-    app.setTheme(this);
-    setTimeout(() => {
-      this.setData({
-        videoList: config.pageData
+  refresh() {
+
+  },
+  scrollRight() {
+    wx.showToast({
+      title: '已经到底了',
+      icon: 'none'
+    })
+  },
+  linkInfo() {
+    wx.navigateTo({
+      url: '/pages/detail/index',
+    })
+  },
+  toHome() {
+    wx.switchTab({
+      url: '/pages/index/index',
+    })
+  },
+  // 导航
+  navToMap: throttle(function (e) {
+    const data = e.currentTarget.dataset;
+    if (wx.canIUse('navigateMap')) {
+      wx.navigateMap({
+        destination: {
+          latitude: parseFloat(data.lat),
+          longitude: parseFloat(data.lng),
+          address: data.address // 地址
+        }
+      });
+    } else {
+      wx.showToast({
+        title: '当前设备不支持导航',
+        icon: 'none'
       })
-    }, 1000)
+    }
+  }),
+  onShow: function() {
+    console.log('show')
     this.getList()
+  },
+  onLoad: function () {
+    app.setTheme(this);
   },
 
 })

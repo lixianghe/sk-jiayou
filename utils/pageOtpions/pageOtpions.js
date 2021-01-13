@@ -15,7 +15,7 @@ const pageConfig = {
      */
     type: 'v1',
     button: [{
-        icon: '/images/navigation.png',
+        icon: '/images/dark/invalid_name_2.png',
         text: '导航',
         type: 'navigation'
       },

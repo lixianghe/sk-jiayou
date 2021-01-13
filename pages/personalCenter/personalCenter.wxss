@@ -113,7 +113,7 @@
   width: 87.8vh;
   height: 100%;
   border-radius: 1.2vh;
-  background-color: #2d2d2d;
+  background-color: rgba(255,255,255, 0.1);
   padding: 0vh 4.3vh 0 4.43vh;
 }
 .vpick-img {
@@ -147,6 +147,12 @@
   margin-right: 2.5vh;
   font-size: 3.69vh;
   color: #ff4c3b
+}
+.vpick-tag .image {
+  width: 2.15vh;
+  height: 2.65vh;
+  vertical-align: middle;
+  margin-right: 1.5vh;
 }
 .invalidName {
   width: 3vh;
@@ -197,7 +203,7 @@
   justify-content: center;
 }
 .navToMap {
-  display: inline-block;
+  display: flex;
   width: 26.45vh;
   border-radius: 4vh;
   height: 8.5vh;
@@ -206,6 +212,8 @@
   vertical-align: super;
   line-height: 9vh;
   margin-left: 6.5vh;
+  align-items: center;
+  justify-content: center;
 }
 .btn-group {
   display: flex;
@@ -218,10 +226,9 @@
 }
 .vpick-navTo {
   display: inline-block;
-  width: 6.81vh;
-  height: 6.81vh;
-  vertical-align: initial;
-  margin-left: 2vh;
+  width: 3.07vh;
+  height: 3.84vh;
+  margin-right: 1.5vh;
 }
 .but-tit {
   font-size: 4.89vh;
