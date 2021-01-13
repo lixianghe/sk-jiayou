@@ -244,15 +244,17 @@ Component({
       })
     },
     linkInfo(e) {
-      console.log(e.target.dataset.index)
-      let index = e.target.dataset.index
+      
+      let index = e.currentTarget.dataset.index
       let oil = this.data.videoList[index]
+      
       wx.setStorageSync('oilItem', oil)
       // 把历史记录存在缓存
       let oilHistoryList = wx.getStorageSync('oilHistoryList') || []
+      console.log(e.currentTarget.dataset.index, oil, oilHistoryList)
       // 判断是否已经存在oil
       for (var i = 0; i < oilHistoryList.length; i++) {
-        if (oilHistoryList[i].id === oil.id) {
+        if (oilHistoryList[i] && (oilHistoryList[i].id === oil.id)) {
           oilHistoryList.splice(i, 1)
           oilHistoryList.unshift(oil)
           wx.setStorageSync('oilHistoryList', oilHistoryList)

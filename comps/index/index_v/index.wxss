@@ -394,6 +394,7 @@
 .swiper{
   width: 25vh;
   height: 5vh;
+  line-height: 5vh;
   text-align: right;
   margin-left: 2vh;
 }

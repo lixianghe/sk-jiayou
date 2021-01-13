@@ -39,7 +39,7 @@
       <image class="image" src="../../../images/dark/car.png" />
       <text>{{oilItem.distance}}</text>
     </view>
-    <button class="button" catchtap="navToMap" data-lat="{{item.lat}}" data-lng="{{item.lng}}" data-address="{{item.address}}">
+    <button class="button" catchtap="navToMap" data-lat="{{oilItem.lat}}" data-lng="{{oilItem.lng}}" data-address="{{oilItem.address}}">
       <image class="image" src="../../../images/dark/locationBtn.png"/>
       <text>去这里</text>
     </button>

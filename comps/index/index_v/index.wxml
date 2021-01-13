@@ -55,7 +55,7 @@
   <scroll-view class="scroll-view-bar" scroll-x="true" bindscrolltolower="scrollRight" scroll-left="{{scrollLeft}}" lower-threshold="{{lowerThreshold}}">
     <view class="pick-card" wx:for="{{videoList}}" wx:for-item="item" wx:for-index="idx" wx:key="id" data-itemId="{{item.id}}">
       <!-- 竖图信息最多态 -->
-      <view class="vpick-item" data-index="{{index}}" bindtap="linkInfo" data-focusindex="3">
+      <view class="vpick-item" data-index="{{idx}}" catchtap="linkInfo" data-focusindex="3">
         <view class="vpick-titL">
           <view class="pick-title">{{item.mainTitle}}</view>
           <view class="vindex-tag">
