@@ -119,3 +119,4 @@
 
 <view class="mask" wx:if="{{showMaskOil}}" bindtap="closeOil"></view>
 <view class="mask" wx:if="{{showMaskBrand}}" bindtap="closeBrand"></view>
+<log></log>

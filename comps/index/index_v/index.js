@@ -78,9 +78,10 @@ Component({
         scrollLeft: 0
       })
       wx.getLocation({
-        type: 'wgs84',
+        type: 'gcj02',
         success(res) {
           // app.log("----获取定位初始化数据成功-----",res)
+          app.log(JSON.stringify(res))
           const latitude = res.latitude;
           const longitude = res.longitude;     
           wx.setStorageSync('lat', latitude); 
@@ -115,7 +116,7 @@ Component({
         },
         success: function(res) {//成功后的回调
           let result = res.result;
-          console.log(result)
+          // console.log(result)
           let address = `${result.formatted_addresses.recommend}`
           that.setData({
             address,
@@ -155,7 +156,7 @@ Component({
           item.priceObj = item.product.filter(n => n.oilNumber == this.data.currentOil)[0]
           let shengPrice = ((200 / item.priceObj.gunPrice) * (item.priceObj.gunPrice - item.priceObj.userPrice)).toFixed(2)
           item.subLabel = `加油200省${shengPrice}`
-          console.log(item.address.split('市'))
+          // console.log(item.address.split('市'))
           list.push({
             id: item.id,
             mainTitle: item.name,
@@ -249,11 +250,11 @@ Component({
       
       let index = e.currentTarget.dataset.index
       let oil = this.data.videoList[index]
-      
+      app.log(JSON.stringify(oil))
       wx.setStorageSync('oilItem', oil)
       // 把历史记录存在缓存
       let oilHistoryList = wx.getStorageSync('oilHistoryList') || []
-      console.log(e.currentTarget.dataset.index, oil, oilHistoryList)
+      // console.log(e.currentTarget.dataset.index, oil, oilHistoryList)
       // 判断是否已经存在oil
       for (var i = 0; i < oilHistoryList.length; i++) {
         if (oilHistoryList[i] && (oilHistoryList[i].id === oil.id)) {
@@ -266,7 +267,7 @@ Component({
           return;
         }
       }
-      console.log(oil)
+      
       if (oil.id) oilHistoryList.unshift(oil)
       wx.setStorageSync('oilHistoryList', oilHistoryList)
       wx.navigateTo({
@@ -299,7 +300,7 @@ Component({
     },
     scrollRight(e) {
       let maxPageNo = Math.ceil(this.data.total / 10)
-      console.log(maxPageNo, pageNo)
+      // console.log(maxPageNo, pageNo)
       if (pageNo == maxPageNo) this.setData({lowerThreshold: 50})
       pageNo++
       if (pageNo > maxPageNo) {

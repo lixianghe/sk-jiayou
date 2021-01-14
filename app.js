@@ -58,8 +58,8 @@ App({
     this.globalData.winHeight = height;
     const rate = width / height;
     this.log(`screenWidth:${width}`, `screenHeight:${height}`);
-    this.log(`windowWidth:${width1}`, `windowHeight:${height1}`);
-    this.log("---sysInfo----",sysInfo)
+    // this.log(`windowWidth:${width1}`, `windowHeight:${height1}`);
+    // this.log("---sysInfo----",sysInfo)
   },
 
   // 获取日期时间戳

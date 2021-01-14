@@ -17,7 +17,7 @@ Component({
       this.triggerEvent('toHome');
     },
     reload(e) {
-      app.log("----点击了重新加载------"+this.properties.code)
+      // app.log("----点击了重新加载------"+this.properties.code)
       this.triggerEvent('refresh');
     }
   },
