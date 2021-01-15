@@ -187,7 +187,7 @@ Component({
         this.setData({
           videoList: [],
           total: 0,
-          retcode: 4
+          retcode: 2
         })
       })
     },
@@ -316,13 +316,16 @@ Component({
   },
 
   attached: function () {
+    // 检测网络
+    let that = this
+    app.getNetWork(that)
     pageNo = 1
-    app.setTheme(this);
-    this.modalAnimation = wx.createAnimation({
+    app.setTheme(that);
+    that.modalAnimation = wx.createAnimation({
       duration: 300,
       timingFunction: 'ease',
     })
-    this.loadLocation()
+    that.loadLocation()
   },
 
 })

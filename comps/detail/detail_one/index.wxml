@@ -48,3 +48,5 @@
     </button>
   </view>
 </view>
+
+<Nodata code="{{retcode}}" bindrefresh="reloadData" isFull="{{isFull}}"></Nodata>

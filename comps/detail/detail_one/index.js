@@ -20,13 +20,17 @@ Component({
     colorStyle: app.globalData.theme.colorStyle, // 页面色彩风格
     backgroundColor: app.globalData.theme.backgroundColor, // 页面背景色
     // 0 正常 1 无数据 2 网络异常 3 服务器异常
-    retcode: 0
+    retcode: 0,
+    isFull: true
   },
   observers: {
 
   },
   attached: function () {
-    this.getInfo()
+    // 检测网络
+    let that = this
+    app.getNetWork(that)
+    that.getInfo()
   },
   ready: function() {
 

@@ -2,7 +2,8 @@ const app = getApp();
 
 Component({
   properties: {
-    code: String // 0 正常 1 无数据 2 网络异常 3 服务器异常 4 请求失败
+    code: String, // 0 正常 1 无数据 2 网络异常 3 服务器异常 4 请求失败,
+    isFull: Boolean
   },
   data: {
     colorStyle: app.globalData.theme.colorStyle,

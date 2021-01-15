@@ -4,9 +4,9 @@
   <button class="btn" data-key="{{key}}" catchtap="viewOil">查看周边的加油站</button>
 </view>
 
-<view class="container {{colorStyle}}" wx:if="{{code=='2'}}" style="background-color:{{backgroundColor}}">
-  <image class="icon" src="{{'/images/'+colorStyle+'/wifi.png'}}"></image>
-  <view class="text">网络不好\n请稍后重试</view>
+<view class="container {{colorStyle}} {{isFull ? 'isFull' : ''}}" wx:if="{{code=='2'}}" style="background-color:{{backgroundColor}};">
+  <image class="icon" src="{{'/images/'+colorStyle+'/locationFail.png'}}"></image>
+  <view class="text">网络不好\n请稍后重试</view>                
   <button class="btn" data-key="{{key}}" catchtap="reload">重新加载</button>
 </view>
 
