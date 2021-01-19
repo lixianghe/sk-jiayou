@@ -117,7 +117,7 @@
   width: 87.8vh;
   height: 100%;
   border-radius: 1.2vh;
-  background-color: rgba(255,255,255, 0.1);
+  background-color: rgba(255,255,255, 0.06);
   padding: 0vh 4.3vh 0 4.43vh;
 }
 .vpick-img {
@@ -139,6 +139,7 @@
   /* padding: 0 2vh 0 0; */
   height: 18.43vh;
   line-height: 9.43vh;
+  font-weight: 700;
 }
 .vpick-tag {
   border-radius: 0.89vh;
@@ -150,23 +151,25 @@
   line-height: 5.8vh;
   margin-right: 2.5vh;
   font-size: 3.69vh;
-  color: #ff4c3b
+  color: #ff4c3b;
+  font-weight: 700;
 }
 .vpick-tag .image {
-  width: 2.15vh;
-  height: 2.65vh;
+  width: 2.45vh;
+  height: 3vh;
   vertical-align: middle;
-  margin-right: 1.5vh;
+  margin-left: 1.5vh;
 }
 .invalidName {
-  width: 3vh;
-  height: 4vh;
+  font-size: 4vh;
   vertical-align: inherit;
+  font-weight: 700;
 }
 .vindexTagmain {
   font-size: 6.15vh;
-  margin: 0 2vh 0 1vh;
+  margin: 0 2vh 0 0vh;
   color: #ff4c3b;
+  font-weight: 700;
 }
 .cancleText {
   font-size: 4.3vh;
@@ -215,7 +218,7 @@
   background-color: #3f82ff;
   vertical-align: super;
   line-height: 9vh;
-  margin-left: 6.5vh;
+  margin-left: 9vh;
   align-items: center;
   justify-content: center;
 }
@@ -345,7 +348,7 @@
   top: 0;
   height: 100vh;
   width: 160vh;
-  background: #151515;
+  background: #212633;
   color: #fff;
   padding: 8.6vh 25.5vh 0 8vh;
   font-size: 5.5vh;
@@ -363,6 +366,9 @@
 /* .oilCard .oiltypes {
   
 } */
+.oilCard .oilTitle{
+  font-weight: 700;
+}
 .oilCard .oiltypes .item {
   width: 36.9vh;
   height: 15.35vh;
@@ -393,7 +399,7 @@
 }
 .active {
   background: rgba(50,122,255, 0.2)!important;
-  border: 1px solid #327aff;
+  border: 2px solid #327aff;
 }
 .swiper{
   width: 25vh;

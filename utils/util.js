@@ -35,10 +35,10 @@ function formatMeter(meter, fixNum) {
   let num
   if (meter / 1000 > 1) {
     num = (meter / 1000).toFixed(fixNum)
-    return `${num}KM`
+    return `${num}km`
   } else {
     num = Number(meter).toFixed(fixNum)
-    return `${num}M`
+    return `${num}m`
   }
 }
 

@@ -9,7 +9,7 @@
 .leftCard {
   height: 100vh;
   /* width: 131vh; */
-  flex: 1.96;
+  flex: 2.1;
   background: rgba(255,255,255, 0.02);
   position: relative;
   /* box-shadow: 6px 6px 6px rgba(255,255,255, 0.1); */
@@ -22,7 +22,7 @@
 }
 .leftCard .payCard .payCardImage {
   width: 113vh;
-  height: 47.5vh;
+  height: 48.5vh;
   position: relative;
 }
 .leftCard .payCard .payCardImage .codeUrl {
@@ -66,7 +66,8 @@
   font-size: 4.92vh;
   width: 61.5vh;
   height: 10vh;
-  border: 0.5vh solid #fff;
+  border: 0.5vh solid transparent;
+  border-color: rgba(250, 250, 250, 0.5);
   box-sizing: border-box;
   border-radius: 2vh;
   margin-top: 3.2vh;
@@ -112,6 +113,7 @@
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   overflow: hidden;
+  font-weight: 700;
 }
 .rightCard .oilLocation {
   color: #9a9a9a;
@@ -121,8 +123,8 @@
   margin-top: 6vh;
 }
 .rightCard .oilLocation .image {
-  width: 5.54vh;
-  height: 5.54vh;
+  width: 7vh;
+  height: 7vh;
   margin-right: 2vh;
 }
 .rightCard .button {
@@ -138,6 +140,7 @@
   margin-top: 25vh;
   /* position: absolute; */
   /* bottom: 11vh; */
+  font-weight: 700;
 }
 .rightCard .button .image {
   width: 6.15vh;

@@ -68,6 +68,7 @@
   white-space: normal;
   /* padding: 3vh 5vh; */
   /* height: 20vh; */
+  font-weight: 700;
 }
 .pick-address {
   padding: 1.5vh 5vh;
@@ -146,23 +147,25 @@
   line-height: 5.8vh;
   margin-right: 2.5vh;
   font-size: 3.69vh;
-  color: #ff4c3b
+  color: #ff4c3b;
+  font-weight: 700;
 }
 .vpick-tag .image {
   width: 2.15vh;
   height: 2.65vh;
   vertical-align: middle;
-  margin-right: 1.5vh;
+  margin-left: 1.5vh;
 }
 .invalidName {
-  width: 3vh;
-  height: 4vh;
+  font-size: 4vh;
   vertical-align: inherit;
+  font-weight: 700;
 }
 .vindexTagmain {
   font-size: 6.15vh;
-  margin: 0 2vh 0 1vh;
+  margin: 0 2vh 0 0vh;
   color: #ff4c3b;
+  font-weight: 700;
 }
 .cancleText {
   font-size: 4.3vh;
@@ -211,7 +214,7 @@
   background-color: #3f82ff;
   vertical-align: super;
   line-height: 9vh;
-  margin-left: 6.5vh;
+  margin-left: 9vh;
   align-items: center;
   justify-content: center;
 }

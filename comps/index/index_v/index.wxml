@@ -59,14 +59,15 @@
         <view class="vpick-titL">
           <view class="pick-title">{{item.mainTitle}}</view>
           <view class="vindex-tag">
-            <image src="../../../images/dark/invalid_name.png" class="invalidName"></image>
+            <text class="invalidName">￥</text>
             <text class="vindexTagmain">{{item.mainLabel}}</text>
-            <text class="cancleText">{{item.gunPrice}}</text>
+            <text class="cancleText">￥{{item.gunPrice}}</text>
           </view>
           <view class="tag-group">
             <view class="vpick-tag" wx:for="{{item.subLabel.length > 2 ? 2: item.subLabel.length}}" wx:for-item="cell" wx:key="index">
-              <image class="image" src="../../../images/dark/xia.png"/>
+              
               <text>{{item.subLabel[cell]}}</text>
+              <image class="image" src="../../../images/dark/xia3.png"/>
             </view>
           </view>
         </view>
