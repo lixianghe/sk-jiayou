@@ -1,3 +1,3 @@
-<IndexH wx:if="{{type === 'h'}}"></IndexH>
-<IndexV wx:if="{{type === 'v'}}"></IndexV>
-<IndexN wx:if="{{type === 'n'}}"></IndexN>
+<IndexH id="IndexH" wx:if="{{type === 'h'}}"></IndexH>
+<IndexV id="IndexV" wx:if="{{type === 'v'}}"></IndexV>
+<IndexN id="IndexN" wx:if="{{type === 'n'}}"></IndexN>

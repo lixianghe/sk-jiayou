@@ -52,14 +52,15 @@ App({
     let pages = getCurrentPages()
     let currentPage = pages[pages.length - 1]
     wx.onNetworkStatusChange(res => {
-      console.log(that)
       const networkType = res.isConnected
       if (!networkType) {
         that.setData({retcode: 2})
         wx.hideLoading()
       } else {
         that.setData({retcode: 0})
-        currentPage.onLoad(currentPage.options)
+        
+        let index = currentPage.selectComponent('#IndexV')
+        if (index) index.loadLocation()
       }
     })
   },

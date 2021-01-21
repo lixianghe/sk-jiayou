@@ -24,18 +24,24 @@
 
 .text {
   display: block;
-  margin-top: 7.288vh;
+  margin-top: 3.3vh;
   height: 8.013vh;
   line-height: 8.013vh;
   font-size: 4.92vh;
   text-align: center;
   white-space: pre-line;
+  color: #fff;
+}
+.n_text {
+  font-size: 4vh;
+  color: rgba(255,255,255, 0.7);
+  margin-top: 1.7vh;
 }
 
 .btn {
   display: block;
   margin: 0 auto;
-  margin-top: 10vh;
+  margin-top: 5vh;
   width: 57.5vh;
   height: 13vh;
   line-height: 12.3vh;

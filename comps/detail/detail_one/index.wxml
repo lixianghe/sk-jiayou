@@ -35,7 +35,7 @@
       <text class="text">{{info.name}}</text>
     </view>
     <view class="oilLocation">
-      <image class="image" src="../../../images/dark/invalid_name_1.png" />
+      <image class="image" src="../../../images/dark/infoLa.png" />
       <text>{{oilItem.subTitle}}</text>
     </view>
     <view class="oilLocation">

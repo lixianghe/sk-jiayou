@@ -157,13 +157,14 @@
 .vpick-tag .image {
   width: 2.45vh;
   height: 3vh;
-  vertical-align: middle;
+  /* vertical-align: middle; */
   margin-left: 1.5vh;
 }
 .invalidName {
   font-size: 4vh;
   vertical-align: inherit;
   font-weight: 700;
+  color: #ff4c3b;
 }
 .vindexTagmain {
   font-size: 6.15vh;
@@ -264,7 +265,7 @@
 .card-nav {
   display: flex;
   align-items: center;
-  padding: 6.15vh 6.73vh 8.2vh;
+  padding: 6.15vh 5.3vh 8.2vh;
   justify-content: space-between;
 }
 .card-nav::after {
@@ -348,7 +349,7 @@
   top: 0;
   height: 100vh;
   width: 160vh;
-  background: #212633;
+  background: #292E39;
   color: #fff;
   padding: 8.6vh 25.5vh 0 8vh;
   font-size: 5.5vh;

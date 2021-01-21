@@ -88,7 +88,7 @@
   </scroll-view>
 
 
-  <Nodata code="{{retcode}}" bindrefresh="reloadData"></Nodata>
+  <Nodata code="{{retcode}}" bindrefresh="reloadData" bindreset="reset"></Nodata>
 </view>
 
 

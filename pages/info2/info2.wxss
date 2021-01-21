@@ -2,6 +2,7 @@
 .page {
   height: 100vh;
   white-space: nowrap;
+  padding: 0 13.1vh;
 }
 
 /* 区块窗口 */
@@ -21,15 +22,15 @@
 .pick-card {
   display: inline-block;
   /* width: 72.115vh; */
-  height: 62.5vh;
+  height: 53.5vh;
   /* padding: 0 2.006vh; */
   /* margin-top: 14.94vh; */
-  margin-left: 6.12vh;
+  margin-left: 6.61vh;
 }
 
-/* .pick-card:first-child {
-  margin-left: 4.968vh;
-} */
+.pick-card:first-child {
+  margin-left: 0vh;
+}
 
 .pick-card:last-child {
   margin-right: 6.12vh;
@@ -111,11 +112,11 @@
 
 .vpick-item {
   overflow: hidden;
-  width: 87.8vh;
+  width: 81.8vh;
   height: 100%;
   border-radius: 1.2vh;
   background-color: rgba(255,255,255, 0.06);
-  padding: 0vh 4.3vh 0 4.43vh;
+  /* padding: 0vh 4.3vh 0 4.43vh; */
 }
 .vpick-img {
   width: 30.8vh;
@@ -129,12 +130,15 @@
 }
 .vpick-titL {
   display: inline-block;
-  width: 44.73vh;
-  margin-top: 5.74vh;
+  width: 100%;
+  margin-top: 4.77vh;
+  padding: 0 4.46vh;
+  padding-bottom: 4vh;
+  border-bottom: 2px solid rgba(255,255,255, 0.06);
 }
 .vpick-titL .pick-title {
   /* padding: 0 2vh 0 0; */
-  height: 14.43vh;
+  height: 10vh;
   line-height: 9.43vh;
 }
 .vpick-tag {
@@ -185,12 +189,12 @@
   color: #ff6100;
   height: 9.04vh;
   line-height: 9.04vh;
-  margin-top: 4.43vh;
   /* display: inline-block; */
 }
 .pick-subTitle {
+  padding: 0 4.46vh;
   height: 12.8vh; /*暂定 */
-  margin-top: 2.84vh;
+  margin-top: 2.33vh;
   display: flex;
   align-items: center;
 }
@@ -208,16 +212,17 @@
 }
 .navToMap {
   display: flex;
-  width: 26.45vh;
-  border-radius: 4vh;
-  height: 8.5vh;
-  font-size: 5vh;
+  width: 18.75vh;
+  border-radius: 1.6vh;
+  height: 9.23vh;
+  font-size: 4vh;
   background-color: #3f82ff;
   vertical-align: super;
   line-height: 9vh;
   margin-left: 9vh;
   align-items: center;
   justify-content: center;
+  font-weight: 700;
 }
 .btn-group {
   display: flex;
@@ -261,7 +266,7 @@
 .card-nav {
   display: flex;
   align-items: center;
-  padding: 8vh 5.3vh 7vh;
+  padding: 9.84vh 0 5.57vh;
   justify-content: space-between;
 }
 .card-nav::after {
@@ -296,6 +301,7 @@
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
+  color: #fff;
 }
 .card-nav .oil {
   height: 11vh;

@@ -187,11 +187,19 @@ Component({
         this.setData({
           videoList: [],
           total: 0,
-          retcode: 2
+          retcode: 4
         })
       })
     },
     refresh() {
+      this.loadLocation()
+    },
+    // 重制条件
+    reset() {
+      this.setData({
+        currentBrand: '0',
+        currentOil: '92'
+      })
       this.loadLocation()
     },
     // 导航
