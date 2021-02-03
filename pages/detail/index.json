@@ -4,6 +4,7 @@
   "navigationBarTextStyle": "white",
   "component": true,
   "usingComponents": {
-    "Detail-one": "../../comps/detail/detail_one/index"
+    "Detail-one": "../../comps/detail/detail_one/index",
+    "detail-two": "../../comps/detail/detail_two/index"
   }
 }

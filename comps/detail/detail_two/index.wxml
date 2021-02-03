@@ -1,21 +1,8 @@
-<wxs module="m2">
-  var formatVal = function (val) {
-		// 判断参数是数组，instanceof 不可用 暂时先这么判断
-    return typeof val === 'object' ? val : [val]
-  }
-	var formatNum = function (val, num) {
-		return val.substring(0, num)
-	}
-  module.exports = {
-		formatVal: formatVal, 
-		formatNum: formatNum
-	};
-</wxs>
 <!-- 页面容器 -->
-<view class="page {{colorStyle}}" style="background:{{backgroundColor}}">
+<view class="page">
   <view class="card-nav">
     <view class="location">
-        <text class="address">已浏览{{videoList.length}}家加油站</text>
+        <text class="address">请选择加油站</text>
     </view>
   </view>
   
@@ -25,7 +12,10 @@
       <!-- 竖图信息最多态 -->
       <view class="vpick-item" data-index="{{idx}}" bindtap="linkInfo" data-focusindex="2">
         <view class="vpick-titL">
-          <view class="pick-title">{{item.mainTitle}}</view>
+          <view class="pick-title">
+            <image class="image" src="../../../images/dark/titleIcon.png" />
+            <text>{{item.mainTitle}}</text>
+          </view>
           <view class="vindex-tag">
             <text class="invalidName">￥</text>
             <text class="vindexTagmain">{{item.mainLabel}}</text>
@@ -34,21 +24,18 @@
           <view class="tag-group">
             <view class="vpick-tag" wx:for="{{item.subLabel.length > 2 ? 2: item.subLabel.length}}" wx:for-item="cell" wx:key="index">
               
-              <text>{{item.subLabel[cell]}}</text>
-              <image class="image" src="../../images/dark/xia3.png"/>
+              <text class="text">{{item.subLabel[cell]}}</text>
+              <image class="image" src="../../../images/dark/xia3.png"/>
             </view>
           </view>
         </view>
-        <view class="vpick-img {{!item.subTitle ? 'vpick-cardBig' : ''}}">
-          <image wx:if="{{item.image}}" class="pick-cover" src="{{item.image}}" binderror="imgLoadErr" data-index="{{idx}}"></image>
-        </view>
         <view class="pick-subTitle">
-          <view class="pick-address" wx:for="{{ m2.formatVal(item.subTitle) }}" wx:for-item="curr" wx:key="index">
-            {{ curr }}
+          <view class="pick-address" wx:for-item="curr" wx:key="index">
+            距您580m
           </view>
           <view class="navToMap" catchtap="navToMap" data-focusindex="3" data-lat="{{item.lat}}" data-lng="{{item.lng}}" data-address="{{item.address}}">
-            <image class="vpick-navTo" src="{{button[0].icon}}"></image>
-            <text style="vertical-align: text-bottom;">{{item.distance}}</text>
+            <!-- <image class="vpick-navTo" src="{{button[0].icon}}"></image> -->
+            <text style="vertical-align: text-bottom;">去加油</text>
           </view>
         </view>
       </view>
@@ -56,5 +43,4 @@
   </scroll-view>
 
 
-  <Nodata code="{{retcode}}" bindtoHome="toHome"></Nodata>
 </view>

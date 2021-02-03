@@ -21,7 +21,7 @@
   justify-content: center;
 }
 .leftCard .payCard .payCardImage {
-  width: 113vh;
+  width: 115vh;
   height: 48.5vh;
   position: relative;
 }
@@ -118,7 +118,7 @@
 }
 .rightCard .oilLocation {
   color: #9a9a9a;
-  font-size: 4.3vh;
+  font-size: 4.6vh;
   display: flex;
   align-items: flex-start;
   margin-top: 6vh;

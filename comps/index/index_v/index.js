@@ -155,7 +155,7 @@ Component({
         res.data.oilInfoList.map(item => {
           item.priceObj = item.product.filter(n => n.oilNumber == this.data.currentOil)[0]
           let shengPrice = ((200 / item.priceObj.gunPrice) * (item.priceObj.gunPrice - item.priceObj.userPrice)).toFixed(2)
-          item.subLabel = `加油200省${shengPrice}`
+          item.subLabel = `加200比油站价省${shengPrice}`
           // console.log(item.address.split('市'))
           list.push({
             id: item.id,

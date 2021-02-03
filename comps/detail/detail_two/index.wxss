@@ -2,6 +2,11 @@
 .page {
   height: 100vh;
   white-space: nowrap;
+  padding: 0 13.1vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: rgba(0,0,0, 0.87)!important;
 }
 
 /* 区块窗口 */
@@ -21,15 +26,15 @@
 .pick-card {
   display: inline-block;
   /* width: 72.115vh; */
-  height: 62.5vh;
+  height: 53.5vh;
   /* padding: 0 2.006vh; */
   /* margin-top: 14.94vh; */
-  margin-left: 6.12vh;
+  margin-left: 6.61vh;
 }
 
-/* .pick-card:first-child {
-  margin-left: 4.968vh;
-} */
+.pick-card:first-child {
+  margin-left: 0vh;
+}
 
 .pick-card:last-child {
   margin-right: 6.12vh;
@@ -68,10 +73,7 @@
   white-space: normal;
   /* padding: 3vh 5vh; */
   /* height: 20vh; */
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  overflow: hidden;
+  font-weight: 700;
 }
 .pick-address {
   padding: 1.5vh 5vh;
@@ -80,7 +82,7 @@
   overflow: hidden;
   color: #ccc;
   width: 43.22vh;
-  font-size: 4vh;
+  font-size: 4.6vh;
   height: 6.3vh;
   display: inline-block;
   vertical-align: super;
@@ -114,11 +116,11 @@
 
 .vpick-item {
   overflow: hidden;
-  width: 87.8vh;
+  width: 81.8vh;
   height: 100%;
   border-radius: 1.2vh;
-  background-color: rgba(255,255,255, 0.06);
-  padding: 0vh 4.3vh 0 4.43vh;
+  background-color: #303030;
+  /* padding: 0vh 4.3vh 0 4.43vh; */
 }
 .vpick-img {
   width: 30.8vh;
@@ -132,42 +134,58 @@
 }
 .vpick-titL {
   display: inline-block;
-  width: 44.73vh;
-  margin-top: 5.74vh;
+  width: 100%;
+  margin-top: 3.9vh;
+  padding: 0 4.46vh;
+  padding-bottom: 4vh;
+  border-bottom: 2px solid rgba(255,255,255, 0.06);
 }
 .vpick-titL .pick-title {
   /* padding: 0 2vh 0 0; */
-  height: 18.43vh;
+  color: #fff;
+  height: 10vh;
   line-height: 9.43vh;
-  font-weight: 700;
+  display: flex;
+  align-items: center;
+}
+.vpick-titL .pick-title .image {
+  width: 6.16vh;
+  height: 6.16vh;
+  margin-right: 1.5vh;
 }
 .vpick-tag {
   border-radius: 0.89vh;
   /* border: 1px solid #ff6100; */
-  background-color: rgba(255,76,59, 0.3);
+  background-color: rgba(255,76,59, 0.1);
   display: inline-block;
-  height: 5.8vh;
-  padding: 0 1vh;
-  line-height: 5.8vh;
+  height: 6.8vh;
+  padding: 0vh 2.1vh;
+  line-height: 6.5vh;
   margin-right: 2.5vh;
-  font-size: 3.69vh;
+  font-size: 4.6vh;
   color: #ff4c3b;
-  font-weight: 700;
+  box-sizing: content-box;
+  display: flex;
+  align-items: center;
+
+}
+.vpick-tag .text {
+  margin-top: -0.5vh;
 }
 .vpick-tag .image {
-  width: 2.45vh;
-  height: 3vh;
-  /* vertical-align: middle; */
-  margin-left: 1vh;
+  width: 3.07vh;
+  height: 3.84vh;
+  vertical-align: middle;
+  margin-left: 1.5vh;
 }
 .invalidName {
+  color: #ff4c3b;
   font-size: 4vh;
   vertical-align: inherit;
   font-weight: 700;
-  color: #ff4c3b;
 }
 .vindexTagmain {
-  font-size: 6.15vh;
+  font-size: 7.38vh;
   margin: 0 2vh 0 0vh;
   color: #ff4c3b;
   font-weight: 700;
@@ -182,19 +200,19 @@
 }
 .tag-group {
   display: flex;
-  margin-top: 1.97vh;
+  margin-top: 2.8vh;
 }
 .vindex-tag {
   font-size: 6.1vh;
   color: #ff6100;
   height: 9.04vh;
   line-height: 9.04vh;
-  margin-top: 0.43vh;
   /* display: inline-block; */
 }
 .pick-subTitle {
+  padding: 0 4.46vh;
   height: 12.8vh; /*暂定 */
-  margin-top: 2.84vh;
+  margin-top: 2.33vh;
   display: flex;
   align-items: center;
 }
@@ -212,16 +230,18 @@
 }
 .navToMap {
   display: flex;
-  width: 26.45vh;
-  border-radius: 4vh;
-  height: 8.5vh;
-  font-size: 5vh;
+  width: 18.75vh;
+  border-radius: 1.6vh;
+  height: 9.23vh;
+  font-size: 4vh;
   background-color: #3f82ff;
   vertical-align: super;
   line-height: 9vh;
   margin-left: 9vh;
   align-items: center;
   justify-content: center;
+  font-weight: 700;
+  color: #fff;
 }
 .btn-group {
   display: flex;
@@ -265,7 +285,7 @@
 .card-nav {
   display: flex;
   align-items: center;
-  padding: 6.15vh 5.3vh 8.2vh;
+  padding: 9.84vh 0 5.57vh;
   justify-content: space-between;
 }
 .card-nav::after {
@@ -290,34 +310,14 @@
   50% {transform: rotate(180deg);}
   100% {transform: rotate(360deg);}
 }
-.card-nav .location .text {
-  float: left;
-  font-size: 4.3vh;
-  color: rgba(255,255,255, 0.7);
-}
 .card-nav .location .address {
   width: 45vh;
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
-  
-}
-.card-nav .oil {
-  height: 11vh;
-  line-height: 11vh;
-  padding: 0 4vh;
+  color: #fff;
   float: left;
-  color: rgba(255,255,255, 0.7);
-  font-size: 4.9vh;
-  background: rgba(255,255,255, 0.08);
-  border-radius: 10vh;
-  display: flex;
-  align-items: center;
-  margin-left: 2vh;
-}
-.card-nav .oil .image, .card-nav .brand .image {
-  width: 6.3vh;
-  height: 6.3vh;
+  font-size: 5.2vh;
 }
 .card-nav .brand {
   padding: 0 4vh;
@@ -336,76 +336,9 @@
   float: right;
   font-size: 4.3vh;
   color: rgba(255,255,255, 0.6);
-  display: flex;
-  align-items: center;
 }
 .card-nav .price .num {
   color: #3f82ff;
 }
-/* 油号弹框 */
-.oilCard{
-  position: fixed;
-  left: 0;
-  top: 0;
-  height: 100vh;
-  width: 160vh;
-  background: #292E39;
-  color: #fff;
-  padding: 8.6vh 25.5vh 0 8vh;
-  font-size: 5.5vh;
-  z-index: 11;
-  transform: translateX(-160vh);
-}
-.oilCard .image {
-  position: absolute;
-  width: 20.6vh;
-  height: 11vh;
-  top: 5.535vh;
-  right: 6.766vh;
-}
 
-/* .oilCard .oiltypes {
-  
-} */
-.oilCard .oilTitle{
-  font-weight: 700;
-}
-.oilCard .oiltypes .item {
-  width: 36.9vh;
-  height: 15.35vh;
-  background: rgba(255,255,255, 0.07);
-  border-radius: 2vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  float: left;
-  margin-right: 4vh;
-  margin-top: 3.84vh;
-}
 
-.brandCard {
-  width: 116.9vh;
-}
-.brandCard .oiltypes {
-  margin-top: 4.3vh;
-}
-.mask {
-  position: fixed;
-  height: 100vh;
-  width: 100vw;
-  background: rgba(0,0,0, 0.8);
-  z-index: 10;
-  left: 0;
-  top: 0;
-}
-.active {
-  background: rgba(50,122,255, 0.2)!important;
-  border: 2px solid #327aff;
-}
-.swiper{
-  width: 25vh;
-  height: 5vh;
-  line-height: 5vh;
-  text-align: right;
-  margin-left: 2vh;
-}

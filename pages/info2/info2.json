@@ -1,5 +1,9 @@
 {
   "navigationBarTitleText": "我的",
   "navigationBarBackgroundColor": "#333333",
-  "navigationBarTextStyle": "white"
+  "navigationBarTextStyle": "white",
+  "component": true,
+  "usingComponents": {
+    "detail-two": "../../comps/detail/detail_two/index"
+  }
 }
