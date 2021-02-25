@@ -21,15 +21,15 @@
   justify-content: center;
 }
 .leftCard .payCard .payCardImage {
-  width: 115vh;
-  height: 48.5vh;
+  width: 115.03vh;
+  height: 50.9vh;
   position: relative;
 }
 .leftCard .payCard .payCardImage .codeUrl {
   position: absolute;
-  top: 6.5vh;
-  width: 35vh;
-  height: 35vh;
+  top: 7vh;
+  width: 37vh;
+  height: 37vh;
   left: 5.5vh;
 }
 .leftCard .payProcess {
@@ -130,6 +130,10 @@
   width: 6.2vh;
   height: 6.2vh;
   margin-right: 2vh;
+  flex-shrink: 0;
+}
+.rightCard .oilLocation text {
+  margin-top: -0.5vh;
 }
 .rightCard .button {
   width: 100%;

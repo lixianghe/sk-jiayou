@@ -48,7 +48,7 @@ Component({
       {value: '92', label: '92#'},
       {value: '95', label: '95#'},
       {value: '98', label: '98#'},
-      {value: 'E92', label: 'E92#'}
+      // {value: 'E92', label: 'E92#'}
     ],
     brandList: [
       {value: '0', label: '全部品牌'},
@@ -184,11 +184,17 @@ Component({
       })
       .catch(error => {
         wx.hideLoading()
+        console.log(params)
         this.setData({
           videoList: [],
-          total: 0,
-          retcode: 4
+          total: 0
         })
+        if (params.oilName == 'E92') {
+          this.setData({retcode: 4})
+        } else {
+          this.setData({retcode: 2})
+        }
+        
       })
     },
     refresh() {

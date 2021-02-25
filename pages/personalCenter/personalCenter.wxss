@@ -77,7 +77,7 @@
   overflow: hidden;
   color: #ccc;
   width: 43.22vh;
-  font-size: 4vh;
+  font-size: 4.6vh;
   height: 6.3vh;
   display: inline-block;
   vertical-align: super;
@@ -111,7 +111,7 @@
 
 .vpick-item {
   overflow: hidden;
-  width: 87.8vh;
+  width: 97.86vh;
   height: 100%;
   border-radius: 1.2vh;
   background-color: rgba(255,255,255, 0.06);
@@ -129,7 +129,7 @@
 }
 .vpick-titL {
   display: inline-block;
-  width: 44.73vh;
+  width: 53.11vh;
   margin-top: 5.74vh;
 }
 .vpick-titL .pick-title {
@@ -143,10 +143,10 @@
   background-color: rgba(255,76,59, 0.3);
   display: inline-block;
   height: 5.8vh;
-  padding: 0 2.73vh;
+  padding: 0 1vh;
   line-height: 5.8vh;
   margin-right: 2.5vh;
-  font-size: 3.69vh;
+  font-size: 4.6vh;
   color: #ff4c3b;
   font-weight: 700;
 }
@@ -163,13 +163,13 @@
   font-weight: 700;
 }
 .vindexTagmain {
-  font-size: 6.15vh;
+  font-size: 6.35vh;
   margin: 0 2vh 0 0vh;
   color: #ff4c3b;
   font-weight: 700;
 }
 .cancleText {
-  font-size: 4.3vh;
+  font-size: 4.6vh;
   color: rgba(255,255,255, 0.5);
   text-decoration: line-through;
 }

@@ -19,6 +19,14 @@ Component({
     },
     reload(e) {
       // app.log("----点击了重新加载------"+this.properties.code)
+      wx.showLoading({title: '加载中...'})
+      setTimeout(() => {
+        wx.hideLoading()
+        wx.showToast({
+          title: '网络异常，请稍后再试',
+          icon: 'none'
+        })
+      }, 1500)
       this.triggerEvent('refresh');
     },
     reset() {
