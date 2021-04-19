@@ -7,9 +7,9 @@
         <view class="price">
           <view class="priceDetail">
             <text class="text">￥</text>
-            <text class="text">{{oilItem.mainLabel}}</text>
+            <text class="text">{{info.prices.userPrice}}</text>
             <text class="text">/L</text>
-            <text class="text oldPrice">{{oilItem.gunPrice}}/L</text>
+            <text class="text oldPrice">{{info.prices.gunPrice}}/L</text>
           </view>
           <view class="discount">
             <!-- <view class="left">
@@ -17,7 +17,7 @@
               <text>立减</text>
             </view> -->
             <view class="right">
-              加200比油站价省{{oilItem.shengPrice}}
+              加200比油站价省{{info.prices.shengPrice}}
               <image class="image" src="../../../images/dark/xia2.png"/>
             </view>
           </view>
@@ -36,13 +36,13 @@
     </view>
     <view class="oilLocation">
       <image class="image" src="../../../images/dark/infoLa.png" />
-      <text>{{oilItem.subTitle}}</text>
+      <text>{{info.address}}</text>
     </view>
     <view class="oilLocation">
       <image class="image" src="../../../images/dark/car.png" />
-      <text>{{oilItem.distance}}</text>
+      <text>{{info.distance}}</text>
     </view>
-    <button class="button" catchtap="navToMap" data-lat="{{oilItem.lat}}" data-lng="{{oilItem.lng}}" data-address="{{oilItem.address}}">
+    <button class="button" catchtap="navToMap" data-lat="{{info.location.lat}}" data-lng="{{info.location.lng}}" data-address="{{info.address}}">
       <image class="image" src="../../../images/dark/locationBtn.png"/>
       <text>去这里</text>
     </button>

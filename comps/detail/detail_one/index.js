@@ -1,5 +1,5 @@
 import { getOilInfo } from '../../../utils/httpOpt/api'
-import { throttle } from '../../../utils/util'
+import { throttle, formatMeter } from '../../../utils/util'
 const app = getApp()
 
 Component({
@@ -12,6 +12,10 @@ Component({
     btns: {
       type: Array,
       default: []
+    },
+    detailOption: {
+      type: Object,
+      default: {}
     }
   },
   data: {
@@ -26,11 +30,13 @@ Component({
   observers: {
 
   },
-  attached: function () {
+  attached: function (opion) {
     // 检测网络
     let that = this
     app.getNetWork(that)
-    that.getInfo()
+    setTimeout(() => {
+      that.getInfo()
+    }, 200)
   },
   ready: function() {
 
@@ -40,15 +46,32 @@ Component({
   },
   methods: {
     getInfo() {
-      wx.showLoading({title: '加载中...'})
+      // 获取url的参数，如果有参数就是外部跳转的
+      
+      let detailOption = this.data.detailOption
+      let params
       let oilItem = wx.getStorageSync('oilItem')
-      this.setData({oilItem: oilItem})
-      let params = {
-        gasId: oilItem.id,
-        latitude: Number(oilItem.lat).toFixed(6),
-        longitude: Number(oilItem.lng).toFixed(6)
+      if (detailOption && detailOption.gasId) {
+        params = {
+          gasId: detailOption.gasId,
+          latitude: Number(detailOption.latitude).toFixed(6),
+          longitude: Number(detailOption.longitude).toFixed(6)
+        }
+      } else {
+        
+        // this.setData({oilItem: oilItem})
+        params = {
+          gasId: oilItem.id,
+          latitude: Number(oilItem.lat).toFixed(6),
+          longitude: Number(oilItem.lng).toFixed(6)
+        }
       }
+      wx.showLoading({title: '加载中...'})
+      
       getOilInfo(params).then(res => {
+        res.oilInfo.prices = res.oilInfo.product.filter(n => n.oilNumber == '92')[0]
+        res.oilInfo.prices.shengPrice = ((200 / res.oilInfo.prices.gunPrice) * (res.oilInfo.prices.gunPrice - res.oilInfo.prices.userPrice)).toFixed(2)
+        res.oilInfo.distance = (detailOption && detailOption.gasId) ? formatMeter(res.oilInfo.distance, 1) : oilItem.distance
         this.setData({
           codeUrl: res.codeUrl,
           info: res.oilInfo
